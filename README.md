@@ -25,7 +25,7 @@
 *.woff binary  
 *.woff2 binary  
 2. In your .gitignore file, add the following to ensure your node packages do not get committed to your GIT repo:  
-wp-content/themes/theme-name-in-step-2)/node_modules
+wp-content/themes/theme-name-in-step-2)/node_modules/
 
 ## 4) Override
 
