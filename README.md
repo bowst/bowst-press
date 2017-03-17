@@ -9,28 +9,38 @@
 
 1. Dowload the Bowst-Press theme and place it in the 'themes' folder in /wp-content/themes.
 
-
 ## 2) Rename
 
 1. Rename the folder 'bowst-press' to the name of your new theme or project.
 2. In 'style.css' change the 'Theme Name' to the name you chose in above (this is the display name for the theme in the Wordpress admin, so exclude dashes or underscores), and change the other meta data items in respect to your project.
-3. Change all 'bowst_press' references in 'functions.php' to the new folder name you applied in step 1 (if a '-'' was used in the name, change it to a '_').
+3. Change all 'bowst_press' references in 'functions.php' to the new folder name you applied in step 2-1 (if a '-'' was used in the name, change it to a '_').
 
+## 3) Settings
 
-## 3) Override
+1. In your .gitattributes file, add the following for your font-awesome files at the bottom to load properly (if they still don't load properly, delete and re-install the font-awesome node package):  
+* *.otf binary
+* *.eot binary
+* *.svg binary
+* *.ttf binary
+* *.woff binary
+* *.woff2 binary
+2. In your .gitignore file, add the following to ensure your node packages do not get committed to your GIT repo:
+* wp-content/themes/theme-name-in-step-2)/node_modules
+
+## 4) Override
 
 1. Override favicon.io with your custom fav icon.
 2. Override screenshot.png with a screenshot that represents your theme's design (880x660).
 3. Override /public/img/logo.png with your theme's logo.
 
 
-## 4) Install
+## 5) Install
 
 1. Open up terminal and enter 'npm install' to install all of the node modules that come with this theme.
 2. Install the theme itself in the Wordpress Admin (Appearance > Themes).
 
 
-## 5) Plugins
+## 6) Plugins
 
 The following plugins are used in most of our projects and are recommended:
 
@@ -40,7 +50,7 @@ The following plugins are used in most of our projects and are recommended:
 4. [Google Analytics](https://wordpress.org/plugins/google-analytics-dashboard-for-wp/)
 
 
-## 6) Styles
+## 7) Styles
 
 1. Override global variables in "src/sass/_variables.scss".  Create custom variables if necessary.  Most base styles will pop right into place upon the customization of these variables. 
 2. Style global/default elements (h1, h2, p, a, etc) in "src/sass/_base.scss" (only if variables are not available for them in the above file).
@@ -49,7 +59,7 @@ The following plugins are used in most of our projects and are recommended:
 5. Compile your styles with Gulp by using the command "gulp watch" in Terminal in your theme's root folder.
 
 
-## 7) Build
+## 8) Build
 
 Build out the structure of your Wordpress theme.  Create pages, page types, apply templates, create and apply sidebars, add custom fields, and more!
 
