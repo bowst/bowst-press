@@ -1,0 +1,198 @@
+/* ===============================================================
+   VARIABLES
+   - Bootstrap variable overrides AND CUSTOM site variables
+     (not 100% replica of original bootstrap variables stylesheet)
+   - Copy only the Bootstrap variables you want to override and 
+     paste below, keeping them in appropriate sections.  
+   - Be sure to remove the !default after each variable.
+   - Bootstrap variables file lives in
+     ../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss
+=============================================================== */
+
+
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+
+// Brand Color Overrides
+$purple:         		#3b0083;
+$magenta:         		#b1059d;
+$lilac:            		#9dabe2;
+$orange:         		#ea7200;
+$pink:          		#ee008c;
+$green:                 #8DC63F;
+
+// Brand Colors
+$brand-primary:         $purple;
+$brand-success:         $magenta;
+$brand-info:            $lilac;
+$brand-warning:         $orange;
+$brand-danger:          $pink;
+
+// Gray Overrides
+$white:					 #fff;
+$gray-base:              #231f20;
+$gray-darker:            #414042;
+$gray-dark:              #6d6e71;
+$gray:                   #bcbec0;
+$gray-light:             #e6e7e8;
+$gray-lighter:           #eee;
+
+
+//== Scaffolding
+//
+//## Settings for some of the most global styles.
+
+//** Background color for `<body>`.
+$body-bg:               $white;
+//** Global text color on `<body>`.
+$text-color:            $gray-darker;
+
+//** Global textual link color.
+$link-color:            $magenta;
+//** Link hover color set via `darken()` function.
+$link-hover-color:      darken($link-color, 15%);
+//** Link hover decoration.
+$link-hover-decoration: underline;
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+$font-family-base:        $font-family-sans-serif;
+
+$font-size-small:         12px;
+$font-size-base:          14px;
+$font-size-medium:        16px;
+$font-size-large:         20px;
+
+$font-size-h1:            32px;
+$font-size-h2:            22px;
+$font-size-h3:            18px;
+$font-size-h4:            16px;
+$font-size-h5:            14px;
+$font-size-h6:            12px;
+
+//** Font Weights
+$weightRegular:			  400;
+$weightMedium:			  500;
+$weightSemiBold:		  600;
+$weightBold:			  700;
+
+//** Paragraphs
+$paragraphMargin:		  1em;
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)); // ~20px
+
+//** By default, this inherits from the `<body>`.
+$headings-font-family:    inherit;
+$headings-font-weight:    bold;
+$headings-line-height:    1.1;
+$headings-color:          $purple;
+
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+
+// Custom Padding
+$padding-sm:				20px;
+$padding:					40px;
+$padding-md:				80px;
+$padding-lg:				100px;
+
+// Line Height
+$line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
+$line-height-small:         1; // 20
+
+// Border Radius
+$border-radius-base:        10px;
+$border-radius-large:       20px;
+$border-radius-small:       5px;
+$border-radius-round:		50%;
+
+
+//== Container sizes
+//
+//## Define the maximum width of `.container` for different screen sizes.
+
+$max-width:					1024px;
+
+
+//== Navbar
+//
+//##
+
+// Basics of a navbar
+$navbar-height:                    56px;
+$navbar-margin-bottom:             0;
+$navbar-border-radius:             0;
+$navbar-padding-horizontal:        0;
+$navbar-padding-vertical:          12px;
+$navbar-collapse-max-height:       340px;
+
+$navbar-default-color:             $purple;
+$navbar-default-bg:                transparent;
+$navbar-default-border:            transparent; 
+
+// Navbar links
+$navbar-default-link-color:                $purple;
+$navbar-default-link-hover-color:          $magenta;
+$navbar-default-link-hover-bg:             transparent;
+$navbar-default-link-active-color:         $magenta;
+$navbar-default-link-active-bg:            transparent;
+$navbar-default-link-disabled-color:       #ccc;
+$navbar-default-link-disabled-bg:          transparent;
+
+// Navbar brand label
+$navbar-default-brand-color:               $navbar-default-link-color;
+$navbar-default-brand-hover-color:         darken($navbar-default-brand-color, 10%);
+$navbar-default-brand-hover-bg:            transparent;
+
+// Navbar toggle
+$navbar-default-toggle-hover-bg:           $purple;
+$navbar-default-toggle-icon-bar-bg:        $magenta;
+$navbar-default-toggle-border-color:       transparent;
+
+
+//== Forms
+//
+//##
+
+//** Placeholder text color
+$input-color-placeholder:        #9B9B9B;
+
+//** `.form-group` margin
+$form-group-margin-bottom:       20px;
+
+//** Text color for `<input>`s
+$input-color:                    #939598;
+//** `<input>` border color
+$input-border:                   $lilac;
+
+
+//== Navs
+//
+//##
+
+//=== Shared nav styles
+$nav-link-padding:                          0;
+$nav-link-hover-bg:                         transparent;
+
+$nav-disabled-link-color:                   $gray-light;
+$nav-disabled-link-hover-color:             $gray-light;
+
+
+
