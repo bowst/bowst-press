@@ -1,45 +1,78 @@
-[![Build Status](https://travis-ci.org/Automattic/_s.svg?branch=master)](https://travis-ci.org/Automattic/_s)
+#BOWST-PRESS
 
-_s
-===
+- Bowst-Press is Bowst's out of the box solution and starting point for building a custom Wordpress site.
+- Based on [Underscores.me](http://underscores.me) Wordpress starter theme.
+- Complete with node modules (bootstrap sass, gulp, font awesome) and a Gulp build system for compiling styles and javascript. 
+- Follow the steps below to get started.
 
-Hi. I'm a starter theme called `_s`, or `underscores`, if you like. I'm a theme meant for hacking so don't use me as a Parent Theme. Instead try turning me into the next, most awesome, WordPress theme out there. That's what I'm here for.
 
-My ultra-minimal CSS might make me look like theme tartare but that means less stuff to get in your way when you're designing your awesome theme. Here are some of the other more interesting things you'll find here:
+##1) Download
 
-* A just right amount of lean, well-commented, modern, HTML5 templates.
-* A helpful 404 template.
-* A custom header implementation in `inc/custom-header.php` just add the code snippet found in the comments of `inc/custom-header.php` to your `header.php` template.
-* Custom template tags in `inc/template-tags.php` that keep your templates clean and neat and prevent code duplication.
-* Some small tweaks in `inc/extras.php` that can improve your theming experience.
-* A script at `js/navigation.js` that makes your menu a toggled dropdown on small screens (like your phone), ready for CSS artistry. It's enqueued in `functions.php`.
-* 2 sample CSS layouts in `layouts/` for a sidebar on either side of your content.
-* Smartly organized starter CSS in `style.css` that will help you to quickly get your design off the ground.
-* Licensed under GPLv2 or later. :) Use it to make something cool.
+1. Dowload the Bowst-Press theme and place it in the 'themes' folder in /wp-content/themes.
 
-Getting Started
----------------
 
-If you want to keep it simple, head over to http://underscores.me and generate your `_s` based theme from there. You just input the name of the theme you want to create, click the "Generate" button, and you get your ready-to-awesomize starter theme.
+##2) Rename
 
-If you want to set things up manually, download `_s` from GitHub. The first thing you want to do is copy the `_s` directory and change the name to something else (like, say, `megatherium-is-awesome`), and then you'll need to do a five-step find and replace on the name in all the templates.
+1. Rename the folder 'bowst-press' to the name of your new theme or project.
+2. In 'style.css' change the 'Theme Name' to the name you chose in above (this is the display name for the theme in the Wordpress admin, so exclude dashes or underscores), and change the other meta data items in respect to your project.
+3. Change all 'bowst_press' references in 'functions.php' to the new folder name you applied in step 1 (if a '-'' was used in the name, change it to a '_').
 
-1. Search for `'_s'` (inside single quotations) to capture the text domain.
-2. Search for `_s_` to capture all the function names.
-3. Search for `Text Domain: _s` in style.css.
-4. Search for <code>&nbsp;_s</code> (with a space before it) to capture DocBlocks.
-5. Search for `_s-` to capture prefixed handles.
 
-OR
+##3) Override
 
-* Search for: `'_s'` and replace with: `'megatherium-is-awesome'`
-* Search for: `_s_` and replace with: `megatherium_is_awesome_`
-* Search for: `Text Domain: _s` and replace with: `Text Domain: megatherium-is-awesome` in style.css.
-* Search for: <code>&nbsp;_s</code> and replace with: <code>&nbsp;Megatherium_is_Awesome</code>
-* Search for: `_s-` and replace with: `megatherium-is-awesome-`
+1. Override favicon.io with your custom fav icon.
+2. Override screenshot.png with a screenshot that represents your theme's design (880x660).
+3. Override /public/img/logo.png with your theme's logo.
 
-Then, update the stylesheet header in `style.css` and the links in `footer.php` with your own information. Next, update or delete this readme.
 
-Now you're ready to go! The next step is easy to say, but harder to do: make an awesome WordPress theme. :)
+##4) Install
 
-Good luck!
+1. Open up terminal and enter 'npm install' to install all of the node modules that come with this theme.
+2. Install the theme itself in the Wordpress Admin (Appearance > Themes).
+
+
+##5) Plugins
+
+The following plugins are used in most of our projects and are recommended:
+
+1. [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/)
+2. [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/)
+3. [Yoast](https://wordpress.org/plugins/wordpress-seo/)
+4. [Google Analytics](https://wordpress.org/plugins/google-analytics-dashboard-for-wp/)
+
+
+##6) Styles
+
+1. Override global variables in "src/sass/_variables.scss".  Create custom variables if necessary.  Most base styles will pop right into place upon the customization of these variables. 
+2. Style global/default elements (h1, h2, p, a, etc) in "src/sass/_base.scss" (only if variables are not available for them in the above file).
+3. In "src/sass/components-styles" override the color selectors and variables in "_backgrounds.scss" and "_type.scss" with your theme's custom color variables and names.
+4. Style global buttons and forms based on your design in "custom/bowst8/src/sass/components-styles/buttons" and "../forms".
+5. Compile your styles with Gulp by using the command "gulp watch" in Terminal in the folder "themes/custom/bowst8"
+
+
+##7) Build
+
+Build out the structure of your Wordpress theme.  Create pages, page types, apply templates, create and apply sidebars, add custom fields, and more!
+
+Default Templates (in alphabetical order)
+
+- 404.php:  404 error page template
+- archive.php:  Blog archive page template
+- comments.php:  Blog comments template
+- footer.php:  Global website footer template, referenced in all other templates
+- front-page.php:  Homepage template
+- header.php:  Global website header template, referenced in all other templates
+- index.php:  Blog listing template
+- page.php:  Page template, applied by defailt if no custom template as been assigned and references files in 'template-parts'
+- search.php:  Search results template
+- sidebar.php:  Sidebar template (pulls dynamic data from admin)
+- single.php:  Post template, applied by defailt if no custom template as been assigned and references files in 'template-parts'
+
+Additonal Templates  
+
+- 'templates' folder:  Place all custom templates here.  Remeber to add the 'template display name' as a php comment at the top (as shown in front-page.php).
+- 'template parts' folder:  Various partial displays depending on what kind of page/post view you are on.
+	- content-none.php: Empty search results
+	- content-page.php: Page content
+	- content-search.php: Search results
+	- content.php: Post content
