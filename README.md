@@ -17,13 +17,13 @@
 
 ## 3) Settings
 
-1. In your .gitattributes file, add the following for your font-awesome files at the bottom to load properly (if they still don't load properly, delete and re-install the font-awesome node package):  
-* *.otf binary
-* *.eot binary
-* *.svg binary
-* *.ttf binary
-* *.woff binary
-* *.woff2 binary
+1. In your .gitattributes file, add the following for your font-awesome files at the bottom to load properly (if they still don't load properly, delete and re-install the font-awesome node package):    
+*.otf binary  
+*.eot binary  
+*.svg binary  
+*.ttf binary  
+*.woff binary  
+*.woff2 binary  
 2. In your .gitignore file, add the following to ensure your node packages do not get committed to your GIT repo:
 * wp-content/themes/theme-name-in-step-2)/node_modules
 
