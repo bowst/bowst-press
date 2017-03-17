@@ -45,8 +45,8 @@ The following plugins are used in most of our projects and are recommended:
 1. Override global variables in "src/sass/_variables.scss".  Create custom variables if necessary.  Most base styles will pop right into place upon the customization of these variables. 
 2. Style global/default elements (h1, h2, p, a, etc) in "src/sass/_base.scss" (only if variables are not available for them in the above file).
 3. In "src/sass/components-styles" override the color selectors and variables in "_backgrounds.scss" and "_type.scss" with your theme's custom color variables and names.
-4. Style global buttons and forms based on your design in "custom/bowst8/src/sass/components-styles/buttons" and "../forms".
-5. Compile your styles with Gulp by using the command "gulp watch" in Terminal in the folder "themes/custom/bowst8"
+4. Style global buttons and forms based on your design in "src/sass/components-styles/buttons" and "../forms".
+5. Compile your styles with Gulp by using the command "gulp watch" in Terminal in your theme's root folder.
 
 
 ## 7) Build
