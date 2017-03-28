@@ -1,49 +1,67 @@
-var gulp 		= require('gulp'),
-	pump 		= require('pump'),
-	sass 		= require('gulp-sass'),
-	cssmin 		= require('gulp-cssmin'),
-	concat 		= require('gulp-concat'),
-	uglify  	= require('gulp-uglify'),
-	livereload  = require('gulp-livereload');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var install = require("gulp-install");
+var concat = require('gulp-concat');
+var minify = require('gulp-minify-css');
+var merge = require('merge-stream');
+var uglify = require('gulp-uglify');
 
-// Paths variables
-var paths = {
-  'dev': {
-    'sass': './src/sass/',
-    'js': './src/js/'
-  },
-  'assets': {
-    'css': './public/css/',
-    'js': './public/js/'
-  }
+var config = {
+    sassPath: './src/sass',
+    jsPath: './src/js',
+    npmPath: './node_modules'
+}
 
-};
-
-gulp.task('globals.css', function(){
-	return gulp.src(paths.dev.sass + 'globals.scss')
-		.pipe(sass())
-		.pipe(cssmin())
-		.pipe(gulp.dest(paths.assets.css))
-		.pipe(livereload());
+gulp.task('npm', function () {
+  return gulp.src(['./package.json'])
+    .pipe(install());
 });
 
-gulp.task('scripts.js', function (cb) {
-	pump([
-        gulp.src([
-			'src/js/*.js'
-    	])
-    	.pipe(concat('scripts.js')),
-        uglify(),
-        gulp.dest(paths.assets.js)
-    ],
-    cb
-  );
+gulp.task('css', function() {
+    var sassStream,
+        cssStream;
+
+    // Compile CSS files
+    cssStream = gulp.src([
+    		// node module & plugin CSS files (NOT sass) can go here
+        ]);
+
+    // Compile Sass
+    sassStream = gulp.src(config.sassPath  + '/globals.scss')
+        .pipe(sass({
+            errLogTOConsole: true
+        }));
+
+    // Merge style streams and concatenate their contents into single file
+    return merge(cssStream, sassStream)
+        .pipe(concat('globals.css'))
+        .pipe(minify())
+        .pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('build', ['globals.css', 'scripts.js']);
-
-gulp.task('watch', function(){
-	livereload.listen();
-	gulp.watch(paths.dev.sass + '**/*.scss', ['globals.css']);
-	gulp.watch(paths.dev.js + '*.js', ['scripts.js']);
+gulp.task('vendor.js', function () {
+  return gulp.src([
+            config.npmPath + '/jquery/dist/jquery.min.js',
+            config.npmPath + '/bootstrap-sass/assets/javascripts/bootstrap.min.js'
+        ])
+        .pipe(concat('vendor.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./public/js'));
 });
+
+gulp.task('scripts.js', function () {
+  return gulp.src([
+            config.jsPath + '/*.js'
+        ])
+        .pipe(concat('scripts.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./public/js'));
+});
+
+
+gulp.task('watch', ['npm', 'css', 'vendor.js', 'scripts.js'], function() {
+    gulp.watch(config.sassPath + '/**/*.scss', ['css']);
+    gulp.watch(config.jsPath + '/*.js', ['scripts.js']);
+});
+
+gulp.task('default', ['watch']);
