@@ -26,7 +26,7 @@
 }
 
 /* Flexbox */
-@mixin flex-box($alignItems,$justifyContent){
+@mixin flex-box($alignItems,$justifyContent, $direction, $wrap, $stretch){
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flexbox;
@@ -41,4 +41,13 @@
   -webkit-justify-content: $justifyContent;
   -ms-flex-pack: $justifyContent;
   justify-content: $justifyContent;
+  -webkit-flex-direction: $direction;
+  -ms-flex-direction: $direction;
+  flex-direction: $direction;
+  -webkit-flex-wrap: $wrap;
+  -ms-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+  -webkit-align-content: $stretch;
+  -ms-flex-line-pack: $stretch;
+  align-content: $stretch;
 }

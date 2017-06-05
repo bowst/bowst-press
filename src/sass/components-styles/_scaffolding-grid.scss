@@ -11,8 +11,8 @@
 .container {
   width: auto;
   max-width: $max-width;
-  padding-right: $padding;
-  padding-left: $padding;
+  padding-right: $grid-gutter-width / 2;
+  padding-left: $grid-gutter-width / 2;
 }
 
 /* Rows and Columns with No spacing/gutters */

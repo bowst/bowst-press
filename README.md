@@ -44,10 +44,13 @@ wp-content/themes/theme-name-in-step-2)/node_modules/
 
 The following plugins are used in most of our projects and are recommended:
 
-1. [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/)
+1. [Advanced Custom Fields with Repeater Field](https://wordpress.org/plugins/advanced-custom-fields/)
 2. [Custom Post Type UI](https://wordpress.org/plugins/custom-post-type-ui/)
 3. [Yoast](https://wordpress.org/plugins/wordpress-seo/)
 4. [Google Analytics](https://wordpress.org/plugins/google-analytics-dashboard-for-wp/)
+5. [Intuitive Custom Post Order](https://wordpress.org/plugins/intuitive-custom-post-order/)
+6. [Custom Sidebars](https://wordpress.org/plugins/custom-sidebars/)
+7. [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/)
 
 
 ## 7) Styles
