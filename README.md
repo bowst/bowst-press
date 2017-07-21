@@ -51,6 +51,7 @@ The following plugins are used in most of our projects and are recommended:
 5. [Intuitive Custom Post Order](https://wordpress.org/plugins/intuitive-custom-post-order/)
 6. [Custom Sidebars](https://wordpress.org/plugins/custom-sidebars/)
 7. [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/)
+8. [Smush Image Compression and Optimization](https://wordpress.org/plugins/wp-smushit/)
 
 
 ## 7) Styles
