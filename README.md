@@ -52,6 +52,7 @@ The following plugins are used in most of our projects and are recommended:
 6. [Custom Sidebars](https://wordpress.org/plugins/custom-sidebars/)
 7. [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/)
 8. [Smush Image Compression and Optimization](https://wordpress.org/plugins/wp-smushit/)
+9. [Dashicons](https://developer.wordpress.org/resource/dashicons/#arrow-left-alt)
 
 
 ## 7) Styles
