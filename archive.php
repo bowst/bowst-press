@@ -11,8 +11,7 @@ get_header(); ?>
 
 	<div class="container padding-vert">
 
-		<?php
-		if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
 				<?php
@@ -40,7 +39,8 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', 'none' );
 
-		endif; ?>
+		endif;
+		?>
 
 	</div>
 
