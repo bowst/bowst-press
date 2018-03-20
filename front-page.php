@@ -7,8 +7,7 @@
  * @package bowst-press
  */
 
-get_header();
-?>
+get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); // begin the page loop. ?>
 
