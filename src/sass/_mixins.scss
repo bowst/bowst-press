@@ -2,21 +2,20 @@
    MIXINS
    - Custom mixins that are not available in Bootstrap.
    - Available Bootstrap mixins can be found in:
-     ../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins
+     ../node_modules/bootstrap/scss/mixins
    - _vendor-prefixes.scss in above has a lot of handy mixins
    =============================================================== */
 
-
 /* Border Radius */
-@mixin border-radius($borderradius){
-	-webkit-border-radius: $borderradius;
-	-moz-border-radius: $borderradius;
-	border-radius: $borderradius;
+@mixin border-radius($borderradius) {
+    -webkit-border-radius: $borderradius;
+    -moz-border-radius: $borderradius;
+    border-radius: $borderradius;
 }
 
 /* Font Awesome */
-@mixin font-awesome($icon){
-	display: inline-block;
+@mixin font-awesome($icon) {
+    display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
@@ -26,28 +25,28 @@
 }
 
 /* Flexbox */
-@mixin flex-box($alignItems,$justifyContent, $direction, $wrap, $stretch){
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flexbox;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-align: $alignItems;
-  -webkit-align-items: $alignItems;
-  -ms-flex-align: $alignItems;
-  align-items: $alignItems;
-  -webkit-box-pack: $justifyContent;
-  -webkit-justify-content: $justifyContent;
-  -ms-flex-pack: $justifyContent;
-  justify-content: $justifyContent;
-  -webkit-flex-direction: $direction;
-  -ms-flex-direction: $direction;
-  flex-direction: $direction;
-  -webkit-flex-wrap: $wrap;
-  -ms-flex-wrap: $wrap;
-  flex-wrap: $wrap;
-  -webkit-align-content: $stretch;
-  -ms-flex-line-pack: $stretch;
-  align-content: $stretch;
+@mixin flex-box($alignItems, $justifyContent, $direction, $wrap, $stretch) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: $alignItems;
+    -webkit-align-items: $alignItems;
+    -ms-flex-align: $alignItems;
+    align-items: $alignItems;
+    -webkit-box-pack: $justifyContent;
+    -webkit-justify-content: $justifyContent;
+    -ms-flex-pack: $justifyContent;
+    justify-content: $justifyContent;
+    -webkit-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+    -webkit-flex-wrap: $wrap;
+    -ms-flex-wrap: $wrap;
+    flex-wrap: $wrap;
+    -webkit-align-content: $stretch;
+    -ms-flex-line-pack: $stretch;
+    align-content: $stretch;
 }

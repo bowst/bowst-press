@@ -10,6 +10,7 @@
     "license": "ISC",
     "dependencies": {
         "bootstrap": "^4.0.0",
+        "browser-sync": "^2.23.6",
         "font-awesome": "^4.7.0",
         "gulp": "^3.9.1",
         "gulp-autoprefixer": "^5.0.0",
@@ -17,10 +18,12 @@
         "gulp-install": "^1.1.0",
         "gulp-minify-css": "^1.2.4",
         "gulp-sass": "^3.1.0",
+        "gulp-sourcemaps": "^2.6.4",
         "gulp-uglify": "^3.0.0",
         "merge-stream": "^1.0.1",
         "popper.js": "^1.14.1"
     },
+    "dev_url": "bowst-press.kbox.site",
     "browserslist": [
         "last 1 major version",
         ">= 1%",
