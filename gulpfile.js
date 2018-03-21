@@ -5,6 +5,8 @@ var concat = require('gulp-concat');
 var minify = require('gulp-minify-css');
 var merge = require('merge-stream');
 var uglify = require('gulp-uglify');
+var autoprefixer = require('gulp-autoprefixer');
+var packageJSON = require('./package.json');
 
 var config = {
     sassPath: './src/sass',
@@ -34,13 +36,22 @@ gulp.task('css', function() {
     // Merge style streams and concatenate their contents into single file
     return merge(cssStream, sassStream)
         .pipe(concat('globals.css'))
+        .pipe(
+            autoprefixer({
+                browsers: packageJSON.browserslist,
+                cascade: false
+            })
+        )
         .pipe(minify())
         .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('vendor.js', function() {
     return gulp
-        .src([config.npmPath + '/bootstrap-sass/assets/javascripts/bootstrap.js'])
+        .src([
+            config.npmPath + '/popper.js/dist/umd/popper.js',
+            config.npmPath + '/bootstrap/dist/js/bootstrap.js'
+        ])
         .pipe(concat('vendor.js'))
         .pipe(uglify())
         .pipe(gulp.dest('./public/js'));

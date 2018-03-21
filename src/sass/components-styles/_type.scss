@@ -1,8 +1,8 @@
 /* ===============================================================
     TYPE
 	- Styles that can be applied to text
-	- The intended real world use for these selectors is for  
-	  creating a quick, nice looking page (that has not been provided 
+	- The intended real world use for these selectors is for
+	  creating a quick, nice looking page (that has not been provided
 	  with a design) in Drupal via the wysiwyg editor.
 	- When creating a page that DOES have a design, it is preferable
       to assign variables to the elements rather than use these classes.
@@ -10,48 +10,87 @@
 	  variable names
    =============================================================== */
 
-
 /* Text Color */
 .txt-brand-primary,
-.txt-purple { color: $brand-primary; }
+.txt-purple {
+    color: theme-color('primary');
+}
 .txt-brand-success,
-.txt-magenta { color: $brand-success; }
+.txt-magenta {
+    color: theme-color('success');
+}
 .txt-brand-info,
-.txt-lilac { color: $brand-info; }
+.txt-lilac {
+    color: theme-color('info');
+}
 .txt-brand-warning,
-.txt-orange { color: $brand-warning; }
+.txt-orange {
+    color: theme-color('warning');
+}
 .txt-brand-danger,
-.txt-pink { color: $brand-danger; }
-.txt-white { color: $white; }
+.txt-pink {
+    color: theme-color('danger');
+}
+.txt-white {
+    color: $white;
+}
 
 /* Text Color - Links */
 a.txt-brand-primary:hover,
-a.txt-purple:hover { color: darken($brand-primary, 15%); }
+a.txt-purple:hover {
+    color: darken(theme-color('primary'), 15%);
+}
 a.txt-brand-success:hover,
-a.txt-magenta:hover { color: darken($brand-success, 15%); }
+a.txt-magenta:hover {
+    color: darken(theme-color('success'), 15%);
+}
 a.txt-brand-info:hover,
-a.txt-lilac:hover { color: darken($brand-info, 15%); }
+a.txt-lilac:hover {
+    color: darken(theme-color('info'), 15%);
+}
 a.txt-brand-warning:hover,
-a.txt-orange:hover { color: darken($brand-warning, 15%); }
+a.txt-orange:hover {
+    color: darken(theme-color('warning'), 15%);
+}
 a.txt-brand-danger:hover,
-a.txt-pink:hover { color: darken($brand-danger, 15%); }
+a.txt-pink:hover {
+    color: darken(theme-color('danger'), 15%);
+}
 
 /* Font Weights */
-.weight-regular { font-weight: $weightRegular; }
-.weight-medium { font-weight: $weightMedium; }
-.weight-semi-bold { font-weight: $weightSemiBold; }
-.weight-bold { font-weight: $weightBold; }
+.weight-light {
+    font-weight: $font-weight-light;
+}
+.weight-normal {
+    font-weight: $font-weight-normal;
+}
+.weight-bold {
+    font-weight: $font-weight-bold;
+}
 
 // Text Sizes */
-.txt-sm { font-size: $font-size-small; }
-.txt-base { font-size: $font-size-base; }
-.txt-md { font-size: $font-size-medium; }
-.txt-lg { font-size: $font-size-large; }
+.txt-sm {
+    font-size: $font-size-sm;
+}
+.txt-base {
+    font-size: $font-size-base;
+}
+.txt-lg {
+    font-size: $font-size-lg;
+}
 
 /* Font Families */
-.font-sans-serif { font-family: $font-family-sans-serif; }
-.font-serif { font-family: $font-family-serif; }
+.font-sans-serif {
+    font-family: $font-family-sans-serif;
+}
+.font-serif {
+    font-family: $font-family-serif;
+}
 
 /* Line Heights */
-.line-height-sm { line-height: $headings-line-height; }
-.line-height-base { line-height: $line-height-base; }
+.line-height-sm {
+    line-height: $headings-line-height;
+}
+.line-height-base {
+    line-height: $line-height-base;
+}

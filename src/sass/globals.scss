@@ -1,27 +1,27 @@
-// Variables
-@import "variables";
-
 // Vendor
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
-@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';
+@import '../../node_modules/font-awesome/scss/font-awesome.scss';
+
+// Variables
+@import 'variables';
 
 // Mixins
-@import "mixins";
+@import 'mixins';
 
 // Base
-@import "base";
-@import "admin-overrides";
+@import 'base';
+@import 'admin-overrides';
 
 // Layout
-@import "layout/header";
-@import "layout/main-nav";
-@import "layout/footer";
+@import 'layout/header';
+@import 'layout/main-nav';
+@import 'layout/footer';
 
 // Style Components
-@import "components-styles/backgrounds";
-@import "components-styles/buttons";
-@import "components-styles/padding";
-@import "components-styles/scaffolding-grid";
-@import "components-styles/type";
-@import "components-styles/forms";
-@import "components-styles/images";
+@import 'components-styles/backgrounds';
+@import 'components-styles/buttons';
+@import 'components-styles/padding';
+@import 'components-styles/scaffolding-grid';
+@import 'components-styles/type';
+@import 'components-styles/forms';
+@import 'components-styles/images';

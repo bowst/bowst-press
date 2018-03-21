@@ -4,10 +4,10 @@
    - You can override some Navbar variables in variables.scss
    ============================================================== */
 
-
-.navbar-default {
-	.navbar-collapse {
-		.navbar-nav {
-		}
-	}
+.navbar {
+    .navbar-collapse {
+        .menu-item a {
+            @extend .nav-link;
+        }
+    }
 }

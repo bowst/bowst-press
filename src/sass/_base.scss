@@ -1,45 +1,49 @@
 /* ==============================================================
    BASE
    - Styles for default/global HTML elements (ex. body, a, h1-h6)
-   - ALWAYS check to see if you can achieve your styles first by 
+   - ALWAYS check to see if you can achieve your styles first by
      overriding bootstrap variables
    - MISC items can also go here (not ideal)
 ============================================================== */
 
-
 /* Ensure no horizontal scroll */
 html,
 body {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 /* Smoother fonts */
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* Responsive images */
 img {
-  max-width: 100%;
-  height: auto;
-  width: auto;
+    max-width: 100%;
+    height: auto;
+    width: auto;
 }
 
 /* Responsive Video */
 iframe,
 video {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
-  &:first-child {
-    margin-top: 0;
-  }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    &:first-child {
+        margin-top: 0;
+    }
 }
 
 /* Paragraphs */
 p {
-  margin-bottom: $paragraphMargin;
+    margin-bottom: $paragraph-margin-bottom;
 }

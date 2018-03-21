@@ -2,63 +2,136 @@
     PADDING
 	- Try to keep consistent spacing throughout the site,
 	  even when a design displays inconsistent spacing.
-	- The intended real world use for these selectors is for  
-	  creating a quick, nice looking page (that has not been provided 
+	- The intended real world use for these selectors is for
+	  creating a quick, nice looking page (that has not been provided
 	  with a design) in Drupal via the wysiwyg editor.
 	- When creating a page that DOES have a design, it is preferable
       to assign variables to the elements rather than use these classes,
       or to use @extend (esp for vert or horz).
    =============================================================== */
 
-
 /* Small */
-.padding-sm { padding: $padding-sm; }
-.padding-sm-top { padding-top: $padding-sm; }
-.padding-sm-right { padding-right: $padding-sm; }
-.padding-sm-bottom { padding-bottom: $padding-sm; }
-.padding-sm-left { padding-left: $padding-sm; }
-.padding-sm-vert { padding-top: $padding-sm; padding-bottom: $padding-sm; }
-.padding-sm-horz { padding-left: $padding-sm; padding-right: $padding-sm; } 
+.padding-sm {
+    padding: $padding-sm;
+}
+.padding-sm-top {
+    padding-top: $padding-sm;
+}
+.padding-sm-right {
+    padding-right: $padding-sm;
+}
+.padding-sm-bottom {
+    padding-bottom: $padding-sm;
+}
+.padding-sm-left {
+    padding-left: $padding-sm;
+}
+.padding-sm-vert {
+    padding-top: $padding-sm;
+    padding-bottom: $padding-sm;
+}
+.padding-sm-horz {
+    padding-left: $padding-sm;
+    padding-right: $padding-sm;
+}
 
 /* Default */
-.padding { padding: $padding; }
-.padding-top { padding-top: $padding; }
-.padding-right { padding-right: $padding; }
-.padding-bottom { padding-bottom: $padding; }
-.padding-left { padding-left: $padding; }
-.padding-vert { padding-top: $padding; padding-bottom: $padding; }
-.padding-horz { padding-left: $padding; padding-right: $padding; } 
+.padding {
+    padding: $padding;
+}
+.padding-top {
+    padding-top: $padding;
+}
+.padding-right {
+    padding-right: $padding;
+}
+.padding-bottom {
+    padding-bottom: $padding;
+}
+.padding-left {
+    padding-left: $padding;
+}
+.padding-vert {
+    padding-top: $padding;
+    padding-bottom: $padding;
+}
+.padding-horz {
+    padding-left: $padding;
+    padding-right: $padding;
+}
 
 /* Medium */
-.padding-md { padding: $padding-md; }
-.padding-md-top { padding-top: $padding-md; }
-.padding-md-right { padding-right: $padding-md; }
-.padding-md-bottom { padding-bottom: $padding-md; }
-.padding-md-left { padding-left: $padding-md; }
-.padding-md-vert { padding-top: $padding-md; padding-bottom: $padding-md; }
-.padding-md-horz { padding-left: $padding-md; padding-right: $padding-md; } 
+.padding-md {
+    padding: $padding-md;
+}
+.padding-md-top {
+    padding-top: $padding-md;
+}
+.padding-md-right {
+    padding-right: $padding-md;
+}
+.padding-md-bottom {
+    padding-bottom: $padding-md;
+}
+.padding-md-left {
+    padding-left: $padding-md;
+}
+.padding-md-vert {
+    padding-top: $padding-md;
+    padding-bottom: $padding-md;
+}
+.padding-md-horz {
+    padding-left: $padding-md;
+    padding-right: $padding-md;
+}
 
 /* Large */
-.padding-lg { padding: $padding-lg; }
-.padding-lg-top { padding-top: $padding-lg; }
-.padding-lg-right { padding-right: $padding-lg; }
-.padding-lg-bottom { padding-bottom: $padding-lg; }
-.padding-lg-left { padding-left: $padding-lg; }
-.padding-lg-vert { padding-top: $padding-lg; padding-bottom: $padding-lg; }
-.padding-lg-horz { padding-left: $padding-lg; padding-right: $padding-lg; } 
+.padding-lg {
+    padding: $padding-lg;
+}
+.padding-lg-top {
+    padding-top: $padding-lg;
+}
+.padding-lg-right {
+    padding-right: $padding-lg;
+}
+.padding-lg-bottom {
+    padding-bottom: $padding-lg;
+}
+.padding-lg-left {
+    padding-left: $padding-lg;
+}
+.padding-lg-vert {
+    padding-top: $padding-lg;
+    padding-bottom: $padding-lg;
+}
+.padding-lg-horz {
+    padding-left: $padding-lg;
+    padding-right: $padding-lg;
+}
 
 /* Padding for Responsive Vertical Stacking Containers */
-.stacked-space { padding-top: $padding; }
+.stacked-space {
+    padding-top: $padding;
+}
 
-@media (min-width: $screen-xs-min){
-	.stacked-space.stacked-space-xs { padding-top: 0; }
+@include media-breakpoint-up(xs) {
+    .stacked-space.stacked-space-xs {
+        padding-top: 0;
+    }
 }
-@media (min-width: $screen-sm-min){
-	.stacked-space.stacked-space-sm { padding-top: 0; }
+@include media-breakpoint-up(sm) {
+    .stacked-space.stacked-space-sm {
+        padding-top: 0;
+    }
 }
-@media (min-width: $screen-md-min){
-	.stacked-space.stacked-space-md { padding-top: 0; }
+@include media-breakpoint-up(md) {
+    .stacked-space.stacked-space-md {
+        padding-top: 0;
+    }
 }
-@media (min-width: $screen-lg-min){
-	.stacked-space.stacked-space-lg { padding-top: 0; }
+@include media-breakpoint-up(lg) {
+    .stacked-space.stacked-space-lg {
+        padding-top: 0;
+    }
 }

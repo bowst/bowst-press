@@ -1,8 +1,8 @@
 /* ===============================================================
     BACKGROUNDS
 	- Consistent and common styles for container backgrounds
-	- The intended real world use for these selectors is for  
-	  creating a quick, nice looking page (that has not been provided 
+	- The intended real world use for these selectors is for
+	  creating a quick, nice looking page (that has not been provided
 	  with a design) in Drupal via the wysiwyg editor.
 	- When creating a page that DOES have a design, it is preferable
       to assign variables to the elements rather than use these classes.
@@ -10,23 +10,44 @@
 	  variable names
    =============================================================== */
 
-
 /* Brand Background Colors */
 .bg-brand-primary,
-.bg-purple { background: $brand-primary; }
+.bg-purple {
+    background: theme-color('primary');
+}
 .bg-brand-success,
-.bg-magenta { background: $brand-success; }
+.bg-magenta {
+    background: theme-color('success');
+}
 .bg-brand-info,
-.bg-lilac { background: $brand-info; }
+.bg-lilac {
+    background: theme-color('info');
+}
 .bg-brand-warning,
-.bg-orange { background: $brand-warning; }
+.bg-orange {
+    background: theme-color('warning');
+}
 .bg-brand-danger,
-.bg-pink { background: $brand-danger; }
+.bg-pink {
+    background: theme-color('danger');
+}
 
 /* Gray Background Colors */
-.bg-gray-base { background: $gray-base; }
-.bg-gray-darker { background: $gray-darker; }
-.bg-gray-dark { background: $gray-dark; }
-.bg-gray { background: $gray; }
-.bg-gray-light { background: $gray-light; }
-.bg-gray-lighter { background: $gray-lighter; }
+.bg-gray-base {
+    background: color('500');
+}
+.bg-gray-darker {
+    background: gray('900');
+}
+.bg-gray-dark {
+    background: gray('700');
+}
+.bg-gray {
+    background: color('gray');
+}
+.bg-gray-light {
+    background: gray('300');
+}
+.bg-gray-lighter {
+    background: gray('100');
+}

@@ -1,36 +1,27 @@
 /* ===============================================================
     SCAFFOLDING GRID
-	  - Overrides for bootstrap scaffolding grid selectors, 
+	  - Overrides for bootstrap scaffolding grid selectors,
 	    such as .container, .row, .col-
-	  - Limit your overrides on these elements and try to not 
+	  - Limit your overrides on these elements and try to not
 	    override widths or margins of columns
    =============================================================== */
 
-
-/* Containers - used to center content within a consistent set width */
-.container {
-  width: auto;
-  max-width: $max-width;
-  padding-right: $grid-gutter-width / 2;
-  padding-left: $grid-gutter-width / 2;
-}
-
 /* Rows and Columns with No spacing/gutters */
 .no-spacing {
-  .row {
-    margin-right: 0;
-    margin-left: 0;
-    [class*="col"] {
-      padding-right: 0;
-      padding-left: 0;
+    .row {
+        margin-right: 0;
+        margin-left: 0;
+        [class*='col'] {
+            padding-right: 0;
+            padding-left: 0;
+        }
     }
-  }
 }
 .row.no-spacing {
-  margin-right: 0;
-  margin-left: 0;
-  [class*="col"] {
-    padding-right: 0;
-    padding-left: 0;
-  }
+    margin-right: 0;
+    margin-left: 0;
+    [class*='col'] {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }

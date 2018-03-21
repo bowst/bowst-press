@@ -23,38 +23,37 @@
 	<header id="header" role="banner">
 
 		<!-- BOOTSTRAP NAVBAR -->
-		<nav class="navbar navbar-default">
-			<div class="container">
+		<nav class="navbar navbar-expand-md navbar-light bg-light">
 
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<?php if ( is_front_page() && is_home() ) : ?>
-						<h1 class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php else : ?>
-						<p class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php endif; ?>
-				</div>
+			<?php if ( is_front_page() && is_home() ) : // Default homepage. ?>
+				<h1 class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<?php elseif ( is_front_page() ) : // Static homepage. ?>
+				<h1 class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<?php else : // Everything else. ?>
+				<p class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+			<?php endif; ?>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<!-- Main Nav -->
-				<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-					<!-- Search -->
-					<form class="navbar-form navbar-left">
-						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Search">
-						</div>
-						<button type="submit" class="btn btn-default">Submit</button>
-					</form>
-				</div>
-
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<!-- Main Nav -->
+				<?php
+					wp_nav_menu( array(
+						'theme_location'  => 'primary',
+						'depth'           => 2,
+						'menu_class'      => 'navbar-nav',
+						'container_class' => 'menu-main-container mr-auto mt-2 mt-lg-0',
+					) );
+				?>
+				<!-- Search -->
+				<form class="navbar-form form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+				</form>
 			</div>
+
 		</nav>
 
 	</header>
