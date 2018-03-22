@@ -8,6 +8,7 @@ var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync');
+var argv = require('yargs').argv;
 var packageJSON = require('./package.json');
 
 var config = {
@@ -16,40 +17,15 @@ var config = {
     npmPath: './node_modules'
 };
 
-// Fetch command line arguments
-const arg = (argList => {
-    let arg = {},
-        a,
-        opt,
-        thisOpt,
-        curOpt;
-    for (a = 0; a < argList.length; a++) {
-        thisOpt = argList[a].trim();
-        opt = thisOpt.replace(/^\-+/, '');
-
-        if (opt === thisOpt) {
-            // argument value
-            if (curOpt) arg[curOpt] = opt;
-            curOpt = null;
-        } else {
-            // argument name
-            curOpt = opt;
-            arg[curOpt] = true;
-        }
-    }
-
-    return arg;
-})(process.argv);
-
 gulp.task('npm', function() {
     return gulp.src(['./package.json']).pipe(install());
 });
 
 gulp.task('browser-sync', function() {
-    if (arg.url) {
+    if (argv.url) {
         browserSync({
             proxy: {
-                target: arg.url
+                target: argv.url
             },
             reloadDelay: 1000
         });

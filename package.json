@@ -1,8 +1,7 @@
 {
     "name": "bowst-press",
     "version": "1.0.0",
-    "description":
-        "* Bowst-Press is Bowst's out of the box solution and starting point for building a custom Wordpress site. * Based on [Underscores.me](http://underscores.me) Wordpress starter theme. * Complete with node modules (bootstrap sass, gulp, font awesome) and a Gulp build system for compiling styles and javascript.  * Follow the steps below to get started.",
+    "description": "* Bowst-Press is Bowst's out of the box solution and starting point for building a custom Wordpress site. * Based on [Underscores.me](http://underscores.me) Wordpress starter theme. * Complete with node modules (bootstrap sass, gulp, font awesome) and a Gulp build system for compiling styles and javascript.  * Follow the steps below to get started.",
     "main": "gulpfile.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,7 +21,8 @@
         "gulp-sourcemaps": "^2.6.4",
         "gulp-uglify": "^3.0.0",
         "merge-stream": "^1.0.1",
-        "popper.js": "^1.14.1"
+        "popper.js": "^1.14.1",
+        "yargs": "^11.0.0"
     },
     "browserslist": [
         "last 1 major version",
