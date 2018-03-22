@@ -2,7 +2,7 @@
 
 *   Bowst-Press is Bowst's out of the box solution and starting point for building a custom Wordpress site.
 *   Based on [Underscores.me](http://underscores.me) Wordpress starter theme.
-*   Complete with node modules (bootstrap sass, gulp, font awesome) and a Gulp build system for compiling styles and javascript.
+*   Complete with node modules (bootstrap, gulp, font awesome) and a Gulp build system for compiling styles and javascript.
 *   Follow the steps below to get started.
 
 ## 1) Download
@@ -12,9 +12,8 @@
 ## 2) Rename
 
 1.  Rename the folder 'bowst-press' to the name of your new theme or project.
-2.  In 'package.json' change the 'dev_url' to your local development URL.
-3.  In 'style.css' change the 'Theme Name' to the name you chose in above (this is the display name for the theme in the Wordpress admin, so exclude dashes or underscores), and change the other meta data items in respect to your project.
-4.  Change all 'bowst*press' references in 'functions.php' to the new folder name you applied in step 2-1 (if a '-'' was used in the name, change it to a '*').
+2.  In 'style.css' change the 'Theme Name' to the name you chose in above (this is the display name for the theme in the Wordpress admin, so exclude dashes or underscores), and change the other meta data items in respect to your project.
+3.  Change all 'bowst*press' references in 'functions.php' to the new folder name you applied in step 2-1 (if a '-'' was used in the name, change it to a '*').
 
 ## 3) Settings
 
@@ -37,7 +36,7 @@
 ## 5) Install
 
 1.  Open up terminal and enter 'npm install' to install all of the node modules that come with this theme.
-2.  Install the theme itself in the Wordpress Admin (Appearance > Themes).
+2.  Activate the theme itself in the Wordpress Admin (Appearance > Themes).
 
 ## 6) Plugins
 
