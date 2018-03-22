@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var install = require('gulp-install');
-// var livereload = require('gulp-livereload');
 var concat = require('gulp-concat');
 var minify = require('gulp-minify-css');
 var merge = require('merge-stream');
@@ -17,16 +16,44 @@ var config = {
     npmPath: './node_modules'
 };
 
+// Fetch command line arguments
+const arg = (argList => {
+    let arg = {},
+        a,
+        opt,
+        thisOpt,
+        curOpt;
+    for (a = 0; a < argList.length; a++) {
+        thisOpt = argList[a].trim();
+        opt = thisOpt.replace(/^\-+/, '');
+
+        if (opt === thisOpt) {
+            // argument value
+            if (curOpt) arg[curOpt] = opt;
+            curOpt = null;
+        } else {
+            // argument name
+            curOpt = opt;
+            arg[curOpt] = true;
+        }
+    }
+
+    return arg;
+})(process.argv);
+
 gulp.task('npm', function() {
     return gulp.src(['./package.json']).pipe(install());
 });
 
 gulp.task('browser-sync', function() {
-    browserSync({
-        proxy: {
-            target: packageJSON.dev_url
-        }
-    });
+    if (arg.url) {
+        browserSync({
+            proxy: {
+                target: arg.url
+            },
+            reloadDelay: 1000
+        });
+    }
 });
 
 gulp.task('bs-reload', function() {

@@ -60,6 +60,7 @@ The following plugins are used in most of our projects and are recommended:
 3.  In "src/sass/components-styles" override the color selectors and variables in "\_backgrounds.scss" and "\_type.scss" with your theme's custom color variables and names.
 4.  Style global buttons and forms based on your design in "src/sass/components-styles/buttons" and "../forms".
 5.  Compile your styles with Gulp by using the command "gulp watch" in Terminal in your theme's root folder.
+6.  Use the --url argument if you want to use BrowserSync to automatically reload your CSS and JS changes (Ex: "gulp watch --url http://yourlocaldevsite.kbox.site").
 
 ## 8) Build
 
