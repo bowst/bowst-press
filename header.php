@@ -47,6 +47,7 @@
 						'container_class' => 'menu-main-container mr-auto mt-2 mt-lg-0',
 					) );
 				?>
+				<i class="fab fa-accessible-icon"></i>
 				<!-- Search -->
 				<form class="navbar-form form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

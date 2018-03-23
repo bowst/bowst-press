@@ -78,7 +78,11 @@ gulp.task('vendor.js', function() {
     return gulp
         .src([
             config.npmPath + '/popper.js/dist/umd/popper.js',
-            config.npmPath + '/bootstrap/dist/js/bootstrap.js'
+            config.npmPath + '/bootstrap/dist/js/bootstrap.js',
+            config.npmPath + '/@fortawesome/fontawesome/index.js',
+            config.npmPath + '/@fortawesome/fontawesome-free-regular/index.js',
+            config.npmPath + '/@fortawesome/fontawesome-free-solid/index.js',
+            config.npmPath + '/@fortawesome/fontawesome-free-brands/index.js'
         ])
         .pipe(concat('vendor.js'))
         .pipe(uglify())
