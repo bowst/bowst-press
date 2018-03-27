@@ -1,116 +1,51 @@
+var pkg = require('./package.json');
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var watch = require('gulp-watch');
 var install = require('gulp-install');
-var concat = require('gulp-concat');
-var minify = require('gulp-minify-css');
-var merge = require('merge-stream');
-var uglify = require('gulp-uglify');
-var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
-var browserSync = require('browser-sync');
-var argv = require('yargs').argv;
-var packageJSON = require('./package.json');
 
-var config = {
-    sassPath: './src/sass',
-    jsPath: './src/js',
-    npmPath: './node_modules'
-};
+const BrowserSync = require('./gulp-tasks/browser-sync');
+const streamToBrowserSync = require('./gulp-tasks/browser-sync').stream;
+const Modernizr = require('./gulp-tasks/modernizr');
+const Images = require('./gulp-tasks/images');
+const Scripts = require('./gulp-tasks/scripts');
+const Sass = require('./gulp-tasks/sass');
 
 gulp.task('npm', function() {
     return gulp.src(['./package.json']).pipe(install());
 });
 
-gulp.task('browser-sync', function() {
-    if (argv.url) {
-        browserSync({
-            proxy: {
-                target: argv.url
-            },
-            reloadDelay: 1000
-        });
-    }
+gulp.task('sass', Sass.build);
+
+gulp.task('js', Scripts.build);
+gulp.task('js-watch', ['js'], BrowserSync.reload);
+
+gulp.task('modernizr', Modernizr);
+
+gulp.task('browser-sync-init', BrowserSync.initialize);
+gulp.task('reload-watch', BrowserSync.reload);
+
+gulp.task('watch', ['npm', 'sass', 'js', 'browser-sync-init'], function() {
+    gulp.watch(pkg.config.sassPath + '/**/*.scss', ['sass']);
+    gulp.watch(pkg.config.jsPath + '/**/*.js', ['js-watch']);
+
+    //Using gulp-watch instead of gulp.watch because it will catch NEW files
+    watch(pkg.config.images + '/source/**/*.*', Images.minify);
+    watch(pkg.config.images + '/*.*', function() {
+        try {
+            BrowserSync.reload();
+        } catch (err) {
+            //don't care!
+        }
+    });
+
+    gulp.watch(
+        ['./**/*.php', pkg.config.jsDest + '/libraries/modernizr-custom.js'],
+        ['reload-watch']
+    );
 });
 
-gulp.task('bs-reload', function() {
-    browserSync.reload();
-});
-
-gulp.task('css', function() {
-    var sassStream, cssStream;
-
-    // Compile CSS files
-    cssStream = gulp.src([
-        // node module & plugin CSS files (NOT sass) can go here
-    ]);
-
-    // Compile Sass
-    sassStream = gulp
-        .src(config.sassPath + '/globals.scss')
-        .pipe(sourcemaps.init())
-        .pipe(
-            sass({
-                errLogTOConsole: true
-            })
-        );
-
-    // Merge style streams and concatenate their contents into single file
-    return merge(cssStream, sassStream)
-        .pipe(sourcemaps.init())
-        .pipe(
-            autoprefixer({
-                browsers: packageJSON.browserslist,
-                cascade: false
-            })
-        )
-        .pipe(concat('globals.css'))
-        .pipe(minify())
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./public/css'))
-        .pipe(
-            browserSync.reload({
-                stream: true
-            })
-        );
-});
-
-gulp.task('vendor.js', function() {
-    return gulp
-        .src([
-            config.npmPath + '/popper.js/dist/umd/popper.js',
-            config.npmPath + '/bootstrap/dist/js/bootstrap.js',
-            config.npmPath + '/@fortawesome/fontawesome/index.js',
-            config.npmPath + '/@fortawesome/fontawesome-free-regular/index.js',
-            config.npmPath + '/@fortawesome/fontawesome-free-solid/index.js',
-            config.npmPath + '/@fortawesome/fontawesome-free-brands/index.js'
-        ])
-        .pipe(concat('vendor.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('./public/js'));
-});
-
-gulp.task('scripts.js', function() {
-    return gulp
-        .src([config.jsPath + '/*.js'])
-        .pipe(sourcemaps.init())
-        .pipe(concat('scripts.js'))
-        .pipe(uglify())
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./public/js'))
-        .pipe(
-            browserSync.reload({
-                stream: true
-            })
-        );
-});
-
-gulp.task('watch', ['npm', 'css', 'vendor.js', 'scripts.js', 'browser-sync'], function() {
-    gulp.watch(config.sassPath + '/**/*.scss', ['css']);
-    gulp.watch(config.jsPath + '/*.js', ['scripts.js']);
-});
-
-gulp.task('watch-css', ['css', 'browser-sync'], function() {
-    gulp.watch(config.sassPath + '/**/*.scss', ['css']);
+gulp.task('watch-css', ['sass', 'browser-sync-init'], function() {
+    gulp.watch(pkg.config.sassPath + '/**/*.scss', ['sass']);
 });
 
 gulp.task('default', ['watch']);

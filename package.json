@@ -1,6 +1,6 @@
 {
     "name": "bowst-press",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "* Bowst-Press is Bowst's out of the box solution and starting point for building a custom Wordpress site. * Based on [Underscores.me](http://underscores.me) Wordpress starter theme. * Complete with node modules (bootstrap sass, gulp, font awesome) and a Gulp build system for compiling styles and javascript.  * Follow the steps below to get started.",
     "main": "gulpfile.js",
     "scripts": {
@@ -8,35 +8,39 @@
     },
     "author": "",
     "license": "ISC",
+    "config": {
+        "sassPath": "./src/sass",
+        "cssPath": "./public/css",
+        "jsPath": "./src/js",
+        "jsDest": "./public/js",
+        "images": "./public/img",
+        "npmPath": "./node_modules"
+    },
     "dependencies": {
         "@fortawesome/fontawesome": "^1.1.4",
         "@fortawesome/fontawesome-free-brands": "^5.0.8",
         "@fortawesome/fontawesome-free-regular": "^5.0.8",
         "@fortawesome/fontawesome-free-solid": "^5.0.8",
+        "autoprefixer": "^8.2.0",
         "bootstrap": "^4.0.0",
         "browser-sync": "^2.23.6",
+        "css-mqpacker": "^6.0.2",
         "gulp": "^3.9.1",
-        "gulp-autoprefixer": "^5.0.0",
+        "gulp-changed": "^3.2.0",
         "gulp-concat": "^2.6.1",
+        "gulp-imagemin": "^4.1.0",
         "gulp-install": "^1.1.0",
         "gulp-minify-css": "^1.2.4",
-        "gulp-sass": "^3.1.0",
+        "gulp-modernizr": "^2.0.1",
+        "gulp-postcss": "^7.0.1",
+        "gulp-sass": "^3.2.1",
         "gulp-sourcemaps": "^2.6.4",
         "gulp-uglify": "^3.0.0",
+        "gulp-watch": "^4.3.11",
         "merge-stream": "^1.0.1",
         "popper.js": "^1.14.1",
+        "postcss-pxtorem": "^4.0.1",
+        "postcss-unique-selectors": "^2.0.2",
         "yargs": "^11.0.0"
-    },
-    "browserslist": [
-        "last 1 major version",
-        ">= 1%",
-        "Chrome >= 45",
-        "Firefox >= 38",
-        "Edge >= 12",
-        "Explorer >= 10",
-        "iOS >= 9",
-        "Safari >= 9",
-        "Android >= 4.4",
-        "Opera >= 30"
-    ]
+    }
 }

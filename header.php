@@ -26,11 +26,11 @@
 		<nav class="navbar navbar-expand-md navbar-light bg-light">
 
 			<?php if ( is_front_page() && is_home() ) : // Default homepage. ?>
-				<h1 class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/public/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a></h1>
 			<?php elseif ( is_front_page() ) : // Static homepage. ?>
-				<h1 class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/public/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a></h1>
 			<?php else : // Everything else. ?>
-				<p class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<p class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/public/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a></p>
 			<?php endif; ?>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -47,7 +47,7 @@
 						'container_class' => 'menu-main-container mr-auto mt-2 mt-lg-0',
 					) );
 				?>
-				<i class="fab fa-accessible-icon"></i>
+
 				<!-- Search -->
 				<form class="navbar-form form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
