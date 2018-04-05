@@ -32,12 +32,12 @@
 			<?php else : // Everything else. ?>
 				<p class="navbar-brand"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/public/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a></p>
 			<?php endif; ?>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="navbarNav">
+			<div class="collapse navbar-collapse" id="main-nav">
 				<!-- Main Nav -->
 				<?php
 					wp_nav_menu( array(
