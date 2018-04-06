@@ -14,6 +14,7 @@ var merge = require('merge-stream');
 const streamToBrowserSync = require('./browser-sync').stream;
 
 const sassOptions = {
+    includePaths: [pkg.config.sassPath, pkg.config.npmPath + '/bootstrap/scss'],
     errLogToConsole: true
 };
 
