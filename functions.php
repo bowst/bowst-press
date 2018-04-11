@@ -126,6 +126,11 @@ function bowst_press_scripts() {
 add_action( 'wp_enqueue_scripts', 'bowst_press_scripts' );
 
 /**
+ * Register Custom Navigation Walker.
+ */
+require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';

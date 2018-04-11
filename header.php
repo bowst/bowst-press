@@ -41,10 +41,11 @@
 				<!-- Main Nav -->
 				<?php
 					wp_nav_menu( array(
-						'theme_location'  => 'primary',
-						'depth'           => 2,
-						'menu_class'      => 'navbar-nav',
-						'container_class' => 'menu-main-container mr-auto mt-2 mt-lg-0',
+						'theme_location' => 'primary',
+						'depth'          => 1, // 1 = with dropdowns, 0 = no dropdowns.
+						'menu_class'     => 'navbar-nav mr-auto',
+						'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
+						'walker'         => new WP_Bootstrap_Navwalker(),
 					) );
 				?>
 
