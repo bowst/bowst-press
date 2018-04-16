@@ -17,37 +17,33 @@
 
 get_header(); ?>
 
-	<div class="container padding-vert">
+	<?php
+	while ( have_posts() ) : the_post();
 
-		<?php
-		while ( have_posts() ) : the_post();
+		if ( have_rows( 'global_layouts' ) ) :
 
-			if ( have_rows( 'global_layouts' ) ) :
+			while ( have_rows( 'global_layouts' ) ) : the_row();
 
-				while ( have_rows( 'global_layouts' ) ) : the_row();
+				$layout = get_row_layout();
+				$layout = substr( $layout, 6 );
 
-					$layout = get_row_layout();
-					$layout = substr( $layout, 6 );
+				get_template_part( 'blocks/block', $layout );
 
-					get_template_part( 'blocks/block', $layout );
+			endwhile;
 
-				endwhile;
+		else :
 
-			else :
+			get_template_part( 'template-parts/content', 'page' );
 
-				get_template_part( 'template-parts/content', 'page' );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-
+			// If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
 			endif;
 
-		endwhile; // End of the loop.
-		?>
+		endif;
 
-	</div>
+	endwhile; // End of the loop.
+	?>
 
 <?php
 get_footer();
