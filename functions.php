@@ -42,6 +42,12 @@ if ( ! function_exists( 'bowst_press_setup' ) ) :
 		*/
 		add_theme_support( 'post-thumbnails' );
 
+		// Load globals stylesheet in TinyMCE.
+		add_editor_style(array(
+			// 'https://fonts.googleapis.com/css?family=Open+Sans:400%2C600', // You must encode the commas in Google Font URLs!
+			'public/css/globals.css'
+		));
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'primary' => esc_html__( 'Primary', 'bowst-press' ),
