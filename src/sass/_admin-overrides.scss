@@ -5,3 +5,7 @@
    ============================================================== */
 
 /* Example: Extra top body padding to compensate for a fixed header overlap */
+
+body#tinymce {
+    margin: 9px 10px;
+}
