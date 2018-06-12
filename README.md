@@ -1,9 +1,9 @@
 # BOWST-PRESS
 
-*   Bowst-Press is Bowst's out of the box solution and starting point for building a custom Wordpress site.
-*   Based on [Underscores.me](http://underscores.me) Wordpress starter theme.
-*   Complete with node modules (bootstrap, gulp, font awesome) and a Gulp build system for compiling styles and javascript.
-*   Follow the steps below to get started.
+-   Bowst-Press is Bowst's out of the box solution and starting point for building a custom Wordpress site.
+-   Based on [Underscores.me](http://underscores.me) Wordpress starter theme.
+-   Complete with node modules (bootstrap, gulp, font awesome) and a Gulp build system for compiling styles and javascript.
+-   Follow the steps below to get started.
 
 ## 1) Download
 
@@ -51,8 +51,8 @@ The following plugins are used in most of our projects and are recommended:
 2.  Style global/default elements (h1, h2, p, a, etc) in "src/sass/\_base.scss" (only if variables are not available for them in the above file).
 3.  In "src/sass/components-styles" override the color selectors and variables in "\_backgrounds.scss" and "\_type.scss" with your theme's custom color variables and names.
 4.  Style global buttons and forms based on your design in "src/sass/components-styles/buttons" and "../forms".
-5.  Compile your styles with Gulp by using the command "gulp watch" in Terminal in your theme's root folder.
-6.  Use the --url argument if you want to use BrowserSync to automatically reload your CSS and JS changes (Ex: "gulp watch --url http://yourlocaldevsite.kbox.site").
+5.  Compile your styles with Gulp by using the command "gulp" in Terminal in your theme's root folder.
+6.  Use the --url argument if you want to use BrowserSync to automatically reload your CSS and JS changes (Ex: "gulp --url http://yourlocaldevsite.kbox.site").
 
 ## 8) Build
 
@@ -60,22 +60,22 @@ Build out the structure of your Wordpress theme. Create pages, page types, apply
 
 ### Default Templates (in alphabetical order)
 
-*   **404.php**: 404 error page template
-*   **archive.php**: Blog archive page template
-*   **comments.php**: Blog comments template
-*   **footer.php**: Global website footer template, referenced in all other templates
-*   **front-page.php**: Homepage template
-*   **header.php**: Global website header template, referenced in all other templates
-*   **index.php**: Blog listing template
-*   **page.php**: Page template, applied by defailt if no custom template as been assigned and references files in 'template-parts'
-*   **search.php**: Search results template
-*   **sidebar.php**: Sidebar template (pulls dynamic data from admin)
-*   **single.php**: Post template, applied by defailt if no custom template as been assigned and references files in 'template-parts'
+-   **404.php**: 404 error page template
+-   **archive.php**: Blog archive page template
+-   **comments.php**: Blog comments template
+-   **footer.php**: Global website footer template, referenced in all other templates
+-   **front-page.php**: Homepage template
+-   **header.php**: Global website header template, referenced in all other templates
+-   **index.php**: Blog listing template
+-   **page.php**: Page template, applied by defailt if no custom template as been assigned and references files in 'template-parts'
+-   **search.php**: Search results template
+-   **sidebar.php**: Sidebar template (pulls dynamic data from admin)
+-   **single.php**: Post template, applied by defailt if no custom template as been assigned and references files in 'template-parts'
 
 ### Additonal Templates
 
-*   **'Templates' folder**: Place all custom templates here. Remeber to add the 'template display name' as a php comment at the top (as shown in front-page.php).
-*   **'Template Parts' folder**: Various partial displays depending on what kind of page/post view you are on.
+-   **'Templates' folder**: Place all custom templates here. Remeber to add the 'template display name' as a php comment at the top (as shown in front-page.php).
+-   **'Template Parts' folder**: Various partial displays depending on what kind of page/post view you are on.
     _ content-none.php: Empty search results
     _ content-page.php: Page content
     _ content-search.php: Search results
