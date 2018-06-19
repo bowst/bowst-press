@@ -118,7 +118,7 @@ function bowst_press_scripts() {
 	wp_enqueue_script( 'bowst-press-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	/* Modernizr & Polyfills */
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/public/js/libraries/modernizr-custom.js', false, filemtime( get_template_directory() . '/public/js/libraries/modernizr-custom.js' ), true );
+	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/public/js/libraries/modernizr-custom.js', false, filemtime( get_template_directory() . '/public/js/libraries/modernizr-custom.js' ), false );
 
 	/* Custom */
 	wp_enqueue_style( 'bowst-press-global-styles', get_template_directory_uri() . '/public/css/globals.css', false, filemtime( get_template_directory() . '/public/css/globals.css' ), 'all' );
