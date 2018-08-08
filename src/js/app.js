@@ -16,9 +16,10 @@ import 'bootstrap/js/dist/dropdown';
 import 'bootstrap/js/dist/util';
 
 // FontAwesome
-import '@fortawesome/fontawesome-free/regular';
-import '@fortawesome/fontawesome-free/solid';
-import '@fortawesome/fontawesome-free/brands';
+import '@fortawesome/fontawesome-free/js/regular';
+import '@fortawesome/fontawesome-free/js/solid';
+import '@fortawesome/fontawesome-free/js/brands';
+import '@fortawesome/fontawesome-free/js/fontawesome';
 
 // Vendor
 // import 'magnific-popup/dist/jquery.magnific-popup.min'; // Need to install via NPM
