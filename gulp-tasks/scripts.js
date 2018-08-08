@@ -9,11 +9,11 @@ let pathToScripts = path.resolve(pkg.config.jsPath);
 let pathToScriptsDest = path.resolve(pkg.config.jsDest);
 
 let webpackConfig = {
-    entry: pathToScripts + '/main.js',
+    entry: pathToScripts + '/app.js',
     output: {
         path: pathToScriptsDest,
-        filename: 'main.js',
-        sourceMapFilename: '[name].js.map'
+        filename: 'app.js',
+        sourceMapFilename: '[file].map'
     },
     devtool: 'source-map',
     module: {
@@ -78,7 +78,7 @@ const handleError = function(err) {
 
 function buildWithWebpack(done) {
     return gulp
-        .src(pkg.config.jsPath + '/main.js')
+        .src(pkg.config.jsPath + '/app.js')
         .pipe(gulpWebpack(webpackConfig, webpack, done))
         .pipe(gulp.dest(pkg.config.jsDest))
         .on('error', handleError);
