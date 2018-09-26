@@ -13,7 +13,7 @@ let webpackConfig = {
     output: {
         path: pathToScriptsDest,
         filename: 'app.js',
-        sourceMapFilename: '[file].map'
+        sourceMapFilename: '[file].map',
     },
     devtool: 'source-map',
     module: {
@@ -23,36 +23,35 @@ let webpackConfig = {
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 options: {
-                    presets: ['es2015']
-                }
-            }
-        ]
+                    presets: ['es2015'],
+                },
+            },
+        ],
+    },
+    externals: {
+        jquery: 'jQuery',
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery', // Used for Bootstrap JavaScript components
-            jQuery: 'jquery' // Used for Bootstrap JavaScript components
-        }),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
+            'process.env.NODE_ENV': JSON.stringify('production'),
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
-            debug: false
+            debug: false,
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
             beautify: false,
             mangle: {
                 screw_ie8: true,
-                keep_fnames: true
+                keep_fnames: true,
             },
             compress: {
-                screw_ie8: true
+                screw_ie8: true,
             },
-            comments: false
-        })
-    ]
+            comments: false,
+        }),
+    ],
 };
 
 const handleError = function(err) {
