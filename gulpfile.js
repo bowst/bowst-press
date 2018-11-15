@@ -44,6 +44,10 @@ gulp.task('watch', ['npm', 'sass', 'js', 'browser-sync-init'], function() {
     );
 });
 
+gulp.task('build', ['npm', 'sass', 'js', 'modernizr'], function() {
+    gulp.watch(pkg.config.sassPath + '/**/*.scss', ['sass']);
+});
+
 gulp.task('watch-css', ['sass', 'browser-sync-init'], function() {
     gulp.watch(pkg.config.sassPath + '/**/*.scss', ['sass']);
 });
