@@ -14,8 +14,8 @@ var merge = require('merge-stream');
 const streamToBrowserSync = require('./browser-sync').stream;
 
 const sassOptions = {
-    includePaths: [pkg.config.sassPath],
-    errLogToConsole: true
+    includePaths: [pkg.config.sassPath, pkg.config.npmPath],
+    errLogToConsole: true,
 };
 
 const autoprefixerOptions = {
@@ -31,8 +31,8 @@ const autoprefixerOptions = {
         'iOS >= 9',
         'Safari >= 9',
         'Android >= 4.4',
-        'Opera >= 30'
-    ]
+        'Opera >= 30',
+    ],
 };
 
 const pxToRemOptions = {
@@ -50,12 +50,12 @@ const pxToRemOptions = {
         'padding-top',
         'padding-right',
         'padding-bottom',
-        'padding-left'
-    ]
+        'padding-left',
+    ],
 };
 
 const mqpackerOptions = {
-    sort: true
+    sort: true,
 };
 
 const build = function() {
@@ -81,7 +81,7 @@ const build = function() {
                 autoprefixer(autoprefixerOptions),
                 pxtorem(pxToRemOptions),
                 mqpacker(mqpackerOptions),
-                uniqueSelectors()
+                uniqueSelectors(),
             ])
         );
 
