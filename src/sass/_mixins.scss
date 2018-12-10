@@ -24,29 +24,71 @@
     content: $icon;
 }
 
-/* Flexbox */
-@mixin flex-box($alignItems, $justifyContent, $direction, $wrap, $stretch) {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -webkit-flexbox;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: $alignItems;
-    -webkit-align-items: $alignItems;
-    -ms-flex-align: $alignItems;
-    align-items: $alignItems;
-    -webkit-box-pack: $justifyContent;
-    -webkit-justify-content: $justifyContent;
-    -ms-flex-pack: $justifyContent;
-    justify-content: $justifyContent;
-    -webkit-flex-direction: $direction;
-    -ms-flex-direction: $direction;
-    flex-direction: $direction;
-    -webkit-flex-wrap: $wrap;
-    -ms-flex-wrap: $wrap;
-    flex-wrap: $wrap;
-    -webkit-align-content: $stretch;
-    -ms-flex-line-pack: $stretch;
-    align-content: $stretch;
+//     /*
+//         ========================================
+//             ::Centering Mixins
+//         ========================================
+//     */
+
+@mixin center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+@mixin vertical-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+//     /*
+//         ========================================
+//             ::Covering Mixin
+//         ========================================
+//     */
+
+@mixin coverer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+//     /*
+//         ========================================
+//             ::Maintain Aspect Ratio Mixin
+//         ========================================
+//     */
+
+@mixin maintain-aspect-ratio($width, $height) {
+    position: relative;
+
+    &:before {
+        content: ' ';
+        display: block;
+        padding-top: ($height / $width) * 100%;
+        width: 100%;
+    }
+
+    > .content {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+//     /*
+//         ========================================
+//             ::Photoshop Letter Spacing
+//         ========================================
+//     */
+
+//converts photoshop letter spacing to em
+@mixin ps-letter-spacing($val) {
+    letter-spacing: $val * 0.001em;
 }
