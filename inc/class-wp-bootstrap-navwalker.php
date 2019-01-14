@@ -180,14 +180,16 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 
 			$atts['target'] = ! empty( $item->target ) ? $item->target : '';
 			$atts['rel']    = ! empty( $item->xfn ) ? $item->xfn : '';
+			$dropdown_icon  = '';
 			// If item has_children add atts to <a>.
 			if ( $args->has_children && 0 === $depth && $args->depth > 1 ) {
-				$atts['href']          = '#';
-				$atts['data-toggle']   = 'dropdown';
+				$atts['href']          = $item->url;
+				// $atts['data-toggle']   = 'dropdown';
 				$atts['aria-haspopup'] = 'true';
 				$atts['aria-expanded'] = 'false';
 				$atts['class']         = 'dropdown-toggle nav-link';
 				$atts['id']            = 'menu-item-dropdown-' . $item->ID;
+				$dropdown_icon         = '<button type="button" class="btn btn-primary toggle"><i class="fas fa-angle-down"></i></button>';
 			} else {
 				$atts['href'] = ! empty( $item->url ) ? $item->url : '#';
 				// Items in dropdowns use .dropdown-item instead of .nav-link.
@@ -272,7 +274,7 @@ if ( ! class_exists( 'WP_Bootstrap_Navwalker' ) ) {
 			}
 
 			// Put the item contents into $output.
-			$item_output .= $args->link_before . $icon_html . $title . $args->link_after;
+			$item_output .= $args->link_before . $icon_html . $title . $dropdown_icon . $args->link_after;
 
 			/**
 			 * This is the end of the internal nav item. We need to close the

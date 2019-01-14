@@ -6,5 +6,41 @@
 
 .navbar {
     .navbar-collapse {
+        .navbar-nav {
+            > .menu-item {
+                > a {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    @include media-breakpoint-up(lg) {
+                        padding: 1rem;
+                        display: block;
+                    }
+
+                    .btn {
+                        padding: 6px 10px;
+                        line-height: 1;
+
+                        @include media-breakpoint-up(lg) {
+                            padding: 0 6px;
+                            background: transparent;
+                            border-color: transparent;
+                            color: $primary;
+                        }
+                    }
+
+                    &::after {
+                        display: none;
+                    }
+                }
+
+                @include media-breakpoint-up(lg) {
+                    &.menu-item-has-children.show .dropdown-menu {
+                        display: block;
+                    }
+                }
+            }
+        }
     }
 }

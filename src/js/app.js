@@ -26,3 +26,4 @@ import '@fortawesome/fontawesome-free/js/fontawesome';
 
 // Custom Scripts
 import './scripts';
+import './main-nav-controller';
