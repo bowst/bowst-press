@@ -32,20 +32,26 @@ $gray-900: #212529 !default;
 $black: #000 !default;
 
 // // Brand Color Overrides
-$purple: #3b0083;
-$magenta: #b1059d;
-$lilac: #9dabe2;
-$orange: #ea7200;
-$pink: #ee008c;
-$green: #8dc63f;
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #28a745 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
 
 // // Brand Colors
-$primary: $purple;
-$secondary: $gray-600;
-$success: $magenta;
-$info: $lilac;
-$warning: $orange;
-$danger: $pink;
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-800 !default;
 
 // Body
 //
@@ -134,7 +140,7 @@ $grid-breakpoints: (
     sm: 576px,
     md: 768px,
     lg: 992px,
-    xl: 1200px
+    xl: 1200px,
 ) !default;
 
 // Grid containers
@@ -145,18 +151,19 @@ $container-max-widths: (
     sm: 540px,
     md: 720px,
     lg: 960px,
-    xl: 1140px
+    xl: 1140px,
 ) !default;
 
 // Forms
 
 // //** Placeholder text color
-$input-placeholder-color: #9b9b9b;
+$input-placeholder-color: $gray-600 !default;
+$input-plaintext-color: $body-color !default;
+
+// //** Text color for `<input>`s
+$input-color: $gray-700 !default;
+// //** `<input>` border color
+$input-border-color: $gray-400 !default;
 
 // //** `.form-group` margin
 $form-group-margin-bottom: 20px;
-
-// //** Text color for `<input>`s
-$input-color: #939598;
-// //** `<input>` border color
-$input-border-color: $lilac;
