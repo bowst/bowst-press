@@ -37,19 +37,3 @@ function bowst_press_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'bowst_press_pingback_header' );
-
-/**
- * Wrap embedded media so we can make it responsive.
- */
-function bowst_press_oembed_html( $html, $url, $attr, $post_id ) {
-	return '<div class="entry-oembed">' . $html . '</div>';
-}
-add_filter( 'embed_oembed_html', 'bowst_press_oembed_html', 99, 4 );
-
-/**
- * Keep Yoast SEO metabox on the bottom.
- */
-function bowst_press_tame_yoast_metabox() {
-	return 'low';
-}
-add_filter( 'wpseo_metabox_prio', 'bowst_press_tame_yoast_metabox' );
