@@ -209,10 +209,12 @@ class Bowst_Press_Disable_Plugins {
 // DISABLE PRODUCTION PLUGINS
 if (defined('WP_DEBUG') && WP_DEBUG === true) {
     new Bowst_Press_Disable_Plugins(array(
-        'w3-total-cache/w3-total-cache.php',   // W3 Total Cache
-        'wordpress-https/wordpress-https.php', // WordPress HTTPS
-        'wp-super-cache/wp-super-cache.php',   // WP Super Cache
-        'backupbuddy/backupbuddy.php'          // BackupBuddy
+        'w3-total-cache/w3-total-cache.php',            // W3 Total Cache
+        'wordpress-https/wordpress-https.php',          // WordPress HTTPS
+        'wp-super-cache/wp-super-cache.php',            // WP Super Cache
+        'backupbuddy/backupbuddy.php',                  // BackupBuddy
+        'autoptimize/autoptimize.php',                  // Autoptimize
+        'shortpixel-image-optimiser/wp-shortpixel.php', // ShortPixel
     ));
 }
 ?>
