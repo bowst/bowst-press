@@ -13,8 +13,6 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="<?php echo esc_url( get_stylesheet_directory_uri() ); ?>/favicon.ico" />
 <?php wp_head(); ?>
 </head>
@@ -41,14 +39,16 @@
 			<div class="collapse navbar-collapse" id="main-nav">
 				<!-- Main Nav -->
 				<?php
-					wp_nav_menu( array(
-						'theme_location' => 'primary',
-						'depth'          => 2, // 1 = no dropdowns, 2 = with dropdowns.
-						'menu_class'     => 'navbar-nav mr-auto',
-						'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
-						'walker'         => new WP_Bootstrap_Navwalker(),
-					) );
-				?>
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'depth'          => 2, // 1 = no dropdowns, 2 = with dropdowns.
+							'menu_class'     => 'navbar-nav mr-auto',
+							'fallback_cb'    => 'WP_Bootstrap_Navwalker::fallback',
+							'walker'         => new WP_Bootstrap_Navwalker(),
+						)
+					);
+					?>
 
 				<!-- Search -->
 				<form class="navbar-form form-inline my-2 my-lg-0">
