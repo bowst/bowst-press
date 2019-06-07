@@ -214,7 +214,7 @@ if (defined('WP_DEBUG') && WP_DEBUG === true) {
         'wp-super-cache/wp-super-cache.php',            // WP Super Cache
         'backupbuddy/backupbuddy.php',                  // BackupBuddy
         'autoptimize/autoptimize.php',                  // Autoptimize
-        'shortpixel-image-optimiser/wp-shortpixel.php', // ShortPixel
+        // 'shortpixel-image-optimiser/wp-shortpixel.php', // ShortPixel
     ));
 }
 ?>
