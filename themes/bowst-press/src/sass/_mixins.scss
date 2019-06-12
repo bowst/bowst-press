@@ -6,22 +6,41 @@
    - _vendor-prefixes.scss in above has a lot of handy mixins
    =============================================================== */
 
-/* Border Radius */
-@mixin border-radius($borderradius) {
-    -webkit-border-radius: $borderradius;
-    -moz-border-radius: $borderradius;
-    border-radius: $borderradius;
-}
-
-/* Font Awesome */
-@mixin font-awesome($icon) {
-    display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
+//     /*
+//         ========================================
+//             ::Font Awesome - 900 (Solid), 400 (Regular or Brands), 300 (Light)
+//         ========================================
+//     */
+@mixin font-awesome($icon, $weight: 400) {
+    display: none;
+    font-family: 'Font Awesome 5 Pro';
     font-size: inherit;
+    font-weight: $weight;
+    font-style: normal;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     content: $icon;
+}
+
+//     /*
+//         ========================================
+//             ::Admin Sticky Fix
+//         ========================================
+//     */
+@mixin admin-sticky-fix($offset: 0) {
+    $narrow-offset: 46px;
+    $wide-offset: 32px;
+    @if $offset != 0 and type-of($offset) == 'number' {
+        $narrow-offset: $narrow-offset + $offset;
+        $wide-offset: $wide-offset + $offset;
+    }
+    .admin-bar & {
+        top: $narrow-offset;
+        @media screen and (min-width: 783px) {
+            top: $wide-offset;
+        }
+    }
 }
 
 //     /*
@@ -91,4 +110,54 @@
 //converts photoshop letter spacing to em
 @mixin ps-letter-spacing($val) {
     letter-spacing: $val * 0.001em;
+}
+
+//     /*
+//         ========================================
+//             ::Vertical Padding
+//         ========================================
+//     */
+@mixin vertical-padding() {
+    padding-top: $padding-sm;
+    padding-bottom: $padding-sm;
+
+    @include media-breakpoint-up(md) {
+        padding-top: $padding;
+        padding-bottom: $padding;
+    }
+
+    @include media-breakpoint-up(lg) {
+        padding-top: $padding-md;
+        padding-bottom: $padding-md;
+    }
+
+    @include media-breakpoint-up(xl) {
+        padding-top: $padding-lg;
+        padding-bottom: $padding-lg;
+    }
+}
+
+//     /*
+//         ========================================
+//             ::Vertical Spacing
+//         ========================================
+//     */
+@mixin vertical-spacing() {
+    margin-top: $padding-sm;
+    margin-bottom: $padding-sm;
+
+    @include media-breakpoint-up(md) {
+        margin-top: $padding;
+        margin-bottom: $padding;
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin-top: $padding-md;
+        margin-bottom: $padding-md;
+    }
+
+    @include media-breakpoint-up(xl) {
+        margin-top: $padding-lg;
+        margin-bottom: $padding-lg;
+    }
 }

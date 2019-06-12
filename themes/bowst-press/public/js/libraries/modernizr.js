@@ -1,5 +1,5 @@
 /*!
- * modernizr v3.6.0
+ * modernizr v3.7.1
  * Build https://modernizr.com/download?-rgba-addtest-classes-load-mq-printshiv-setclasses-dontmin
  *
  * Copyright (c)
@@ -10,6 +10,7 @@
  *  Patrick Kettner
  *  Stu Cox
  *  Richard Herrera
+ *  Veeck
 
  * MIT License
  */
@@ -23,20 +24,19 @@
 */
 
 ;(function(window, document, undefined){
+
   var tests = [];
   
 
   /**
-   *
    * ModernizrProto is the constructor for Modernizr
    *
    * @class
    * @access public
    */
-
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.6.0',
+    _version: '3.7.1',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -95,20 +95,20 @@
    * @function is
    * @param {*} obj - A thing we want to check the type of
    * @param {string} type - A string to compare the typeof against
-   * @returns {boolean}
+   * @returns {boolean} true if the typeof the first parameter is exactly the specified type, false otherwise
    */
-
   function is(obj, type) {
     return typeof obj === type;
   }
+
   ;
 
   /**
    * Run through all tests and detect their support in the current UA.
    *
    * @access private
+   * @returns {void}
    */
-
   function testRunner() {
     var featureNames;
     var feature;
@@ -142,7 +142,6 @@
 
         // Run the test, or use the raw value if it's not a function
         result = is(feature.fn, 'function') ? feature.fn() : feature.fn;
-
 
         // Set each of the names on the Modernizr object
         for (nameIdx = 0; nameIdx < featureNames.length; nameIdx++) {
@@ -179,7 +178,6 @@
    * @access private
    * @returns {HTMLElement|SVGElement} The root element of the document
    */
-
   var docElement = document.documentElement;
   
 
@@ -189,8 +187,8 @@
    * @access private
    * @returns {boolean}
    */
-
   var isSVG = docElement.nodeName.toLowerCase() === 'svg';
+
   
 
   /**
@@ -200,7 +198,6 @@
    * @function setClasses
    * @param {string[]} classes - Array of class names
    */
-
   // Pass in an and array of class names, e.g.:
   //  ['no-webp', 'borderradius', ...]
   function setClasses(classes) {
@@ -220,14 +217,15 @@
 
     if (Modernizr._config.enableClasses) {
       // Add the new classes
-      className += ' ' + classPrefix + classes.join(' ' + classPrefix);
+      if (classes.length > 0) {
+        className += ' ' + classPrefix + classes.join(' ' + classPrefix);
+      }
       if (isSVG) {
         docElement.className.baseVal = className;
       } else {
         docElement.className = className;
       }
     }
-
   }
 
   ;
@@ -266,7 +264,7 @@
   
 
 
-   // _l tracks listeners for async tests, as well as tests that execute after the initial run
+  // _l tracks listeners for async tests, as well as tests that execute after the initial run
   ModernizrProto._l = {};
 
   /**
@@ -274,12 +272,13 @@
    * asynchronous, they may not finish before your scripts run. As a result you
    * will get a possibly false negative `undefined` value.
    *
-   * @memberof Modernizr
+   * @memberOf Modernizr
    * @name Modernizr.on
    * @access public
    * @function on
    * @param {string} feature - String name of the feature detect
-   * @param {function} cb - Callback function returning a Boolean - true if feature is supported, false if not
+   * @param {Function} cb - Callback function returning a Boolean - true if feature is supported, false if not
+   * @returns {void}
    * @example
    *
    * ```js
@@ -292,7 +291,6 @@
    * });
    * ```
    */
-
   ModernizrProto.on = function(feature, cb) {
     // Create the list of listeners if it doesn't exist
     if (!this._l[feature]) {
@@ -315,15 +313,15 @@
    * _trigger is the private function used to signal test completion and run any
    * callbacks registered through [Modernizr.on](#modernizr-on)
    *
-   * @memberof Modernizr
+   * @memberOf Modernizr
    * @name Modernizr._trigger
    * @access private
    * @function _trigger
    * @param {string} feature - string name of the feature detect
-   * @param {function|boolean} [res] - A feature detection function, or the boolean =
+   * @param {Function|boolean} [res] - A feature detection function, or the boolean =
    * result of a feature detection function
+   * @returns {void}
    */
-
   ModernizrProto._trigger = function(feature, res) {
     if (!this._l[feature]) {
       return;
@@ -347,20 +345,22 @@
   /**
    * addTest allows you to define your own feature detects that are not currently
    * included in Modernizr (under the covers it's the exact same code Modernizr
-   * uses for its own [feature detections](https://github.com/Modernizr/Modernizr/tree/master/feature-detects)). Just like the offical detects, the result
+   * uses for its own [feature detections](https://github.com/Modernizr/Modernizr/tree/master/feature-detects)).
+   * Just like the official detects, the result
    * will be added onto the Modernizr object, as well as an appropriate className set on
    * the html element when configured to do so
    *
-   * @memberof Modernizr
+   * @memberOf Modernizr
    * @name Modernizr.addTest
    * @optionName Modernizr.addTest()
    * @optionProp addTest
    * @access public
    * @function addTest
-   * @param {string|object} feature - The string name of the feature detect, or an
+   * @param {string|Object} feature - The string name of the feature detect, or an
    * object of feature detect names and test
-   * @param {function|boolean} test - Function returning true if feature is supported,
+   * @param {Function|boolean} test - Function returning true if feature is supported,
    * false if not. Otherwise a boolean representing the results of a feature detection
+   * @returns {Object} the Modernizr object to allow chaining
    * @example
    *
    * The most common way of creating your own feature detects is by calling
@@ -385,7 +385,7 @@
    *  in a statement that will return a boolean value works just fine.
    *
    * ```js
-   * Modernizr.addTest('hasJquery', 'jQuery' in window);
+   * Modernizr.addTest('hasjquery', 'jQuery' in window);
    * ```
    *
    * Just like before, when the above runs `Modernizr.hasjquery` will be true if
@@ -412,10 +412,9 @@
    * There is really no difference between the first methods and this one, it is
    * just a convenience to let you write more readable code.
    */
-
   function addTest(feature, test) {
 
-    if (typeof feature == 'object') {
+    if (typeof feature === 'object') {
       for (var key in feature) {
         if (hasOwnProp(feature, key)) {
           addTest(key, feature[ key ]);
@@ -428,11 +427,11 @@
       var last = Modernizr[featureNameSplit[0]];
 
       // Again, we don't check for parent test existence. Get that right, though.
-      if (featureNameSplit.length == 2) {
+      if (featureNameSplit.length === 2) {
         last = last[featureNameSplit[1]];
       }
 
-      if (typeof last != 'undefined') {
+      if (typeof last !== 'undefined') {
         // we're going to quit if you're trying to overwrite an existing test
         // if we were to allow it, we'd do this:
         //   var re = new RegExp("\\b(no-)?" + feature + "\\b");
@@ -441,10 +440,10 @@
         return Modernizr;
       }
 
-      test = typeof test == 'function' ? test() : test;
+      test = typeof test === 'function' ? test() : test;
 
       // Set the value (this is the magic, right here).
-      if (featureNameSplit.length == 1) {
+      if (featureNameSplit.length === 1) {
         Modernizr[featureNameSplit[0]] = test;
       } else {
         // cast to a Boolean, if not one already
@@ -456,7 +455,7 @@
       }
 
       // Set a single class (either `feature` or `no-feature`)
-      setClasses([(!!test && test != false ? '' : 'no-') + featureNameSplit.join('-')]);
+      setClasses([(!!test && test !== false ? '' : 'no-') + featureNameSplit.join('-')]);
 
       // Trigger the event
       Modernizr._trigger(feature, test);
@@ -473,19 +472,19 @@
   
 
 
-/**
-  * @optionName html5printshiv
-  * @optionProp html5printshiv
-  */
+  /**
+   * @optionName html5printshiv
+   * @optionProp html5printshiv
+   */
 
   // Take the html5 variable out of the html5shiv scope so we can return it.
   var html5;
   if (!isSVG) {
-
     /**
      * @preserve HTML5 Shiv 3.7.3 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
      */
     ;(function(window, document) {
+      /*jshint evil:true */
       /** version */
       var version = '3.7.3';
 
@@ -526,8 +525,8 @@
             var frag = document.createDocumentFragment();
             return (
               typeof frag.cloneNode == 'undefined' ||
-                typeof frag.createDocumentFragment == 'undefined' ||
-                typeof frag.createElement == 'undefined'
+              typeof frag.createDocumentFragment == 'undefined' ||
+              typeof frag.createElement == 'undefined'
             );
           }());
         } catch(e) {
@@ -685,16 +684,16 @@
         };
 
         ownerDocument.createDocumentFragment = Function('h,f', 'return function(){' +
-                                                        'var n=f.cloneNode(),c=n.createElement;' +
-                                                        'h.shivMethods&&(' +
-                                                        // unroll the `createElement` calls
-                                                        getElements().join().replace(/[\w\-:]+/g, function(nodeName) {
-                                                          data.createElem(nodeName);
-                                                          data.frag.createElement(nodeName);
-                                                          return 'c("' + nodeName + '")';
-                                                        }) +
+          'var n=f.cloneNode(),c=n.createElement;' +
+          'h.shivMethods&&(' +
+          // unroll the `createElement` calls
+          getElements().join().replace(/[\w\-:]+/g, function(nodeName) {
+            data.createElem(nodeName);
+            data.frag.createElement(nodeName);
+            return 'c("' + nodeName + '")';
+          }) +
           ');return n}'
-                                                       )(html5, data.frag);
+        )(html5, data.frag);
       }
 
       /*--------------------------------------------------------------------------*/
@@ -713,13 +712,13 @@
 
         if (html5.shivCSS && !supportsHtml5Styles && !data.hasCSS) {
           data.hasCSS = !!addStyleSheet(ownerDocument,
-                                        // corrects block display not defined in IE6/7/8/9
-                                        'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
-                                        // adds styling not present in IE6/7/8/9
-                                        'mark{background:#FF0;color:#000}' +
-                                        // hides non-rendered elements
-                                        'template{display:none}'
-                                       );
+            // corrects block display not defined in IE6/7/8/9
+            'article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}' +
+            // adds styling not present in IE6/7/8/9
+            'mark{background:#FF0;color:#000}' +
+            // hides non-rendered elements
+            'template{display:none}'
+          );
         }
         if (!supportsUnknownElements) {
           shivMethods(ownerDocument, data);
@@ -816,10 +815,10 @@
         var docEl = document.documentElement;
         return !(
           typeof document.namespaces == 'undefined' ||
-            typeof document.parentWindow == 'undefined' ||
-            typeof docEl.applyElement == 'undefined' ||
-            typeof docEl.removeNode == 'undefined' ||
-            typeof window.attachEvent == 'undefined'
+          typeof document.parentWindow == 'undefined' ||
+          typeof docEl.applyElement == 'undefined' ||
+          typeof docEl.removeNode == 'undefined' ||
+          typeof window.attachEvent == 'undefined'
         );
       }());
 
@@ -1004,23 +1003,10 @@
         module.exports = html5;
       }
 
-    }(typeof window !== 'undefined' ? window : this, document));
+    }(typeof window !== "undefined" ? window : this, document));
   }
 
   ;
-
-  /**
-   * Previously, Modernizr.load was an alias for yepnope. Since yepnope was
-   * deprecated, we removed it as well. It is not available on the website builder,
-   * this is only included as an improved warning to those who build a custom
-   * version locally.
-   *
-   * @memberof Modernizr
-   * @name Modernizr.load
-   * @access private
-   * @function load
-   *
-   */
 
   var err = function() {};
   var warn = function() {};
@@ -1037,6 +1023,17 @@
     };
   }
 
+  /**
+   * Previously, Modernizr.load was an alias for yepnope. Since yepnope was
+   * deprecated, we removed it as well. It is not available on the website builder,
+   * this is only included as an improved warning to those who build a custom
+   * version locally.
+   *
+   * @memberOf Modernizr
+   * @name Modernizr.load
+   * @function load
+   * @returns {void}
+   */
   ModernizrProto.load = function() {
     if ('yepnope' in window) {
       warn('yepnope.js (aka Modernizr.load) is no longer included as part of Modernizr. yepnope appears to be available on the page, so we’ll use it to handle this call to Modernizr.load, but please update your code to use yepnope directly.\n See http://github.com/Modernizr/Modernizr/issues/1182 for more information.');
@@ -1045,7 +1042,6 @@
       err('yepnope.js (aka Modernizr.load) is no longer included as part of Modernizr. Get it from http://yepnopejs.com. See http://github.com/Modernizr/Modernizr/issues/1182 for more information.');
     }
   };
-
 
 
   /**
@@ -1058,7 +1054,6 @@
    * @function createElement
    * @returns {HTMLElement|SVGElement} An HTML or SVG element
    */
-
   function createElement() {
     if (typeof document.createElement !== 'function') {
       // This is the case in IE7, where the type of createElement is "object".
@@ -1082,7 +1077,6 @@
    * @returns {HTMLElement|SVGElement} Returns the real body of a document, or an
    * artificially created element that stands in for the body
    */
-
   function getBody() {
     // After page load injecting a fake body doesn't work so check if body exists
     var body = document.body;
@@ -1104,12 +1098,11 @@
    * @access private
    * @function injectElementWithStyles
    * @param {string} rule - String representing a css rule
-   * @param {function} callback - A function that is used to test the injected element
+   * @param {Function} callback - A function that is used to test the injected element
    * @param {number} [nodes] - An integer representing the number of additional nodes you want injected
    * @param {string[]} [testnames] - An array of strings that are used as ids for the additional nodes
-   * @returns {boolean}
+   * @returns {boolean} the result of the specified callback test
    */
-
   function injectElementWithStyles(rule, callback, nodes, testnames) {
     var mod = 'modernizr';
     var style;
@@ -1168,7 +1161,6 @@
     }
 
     return !!ret;
-
   }
 
   ;
@@ -1178,7 +1170,7 @@
    * adapted from matchMedia polyfill by Scott Jehl and Paul Irish
    * gist.github.com/786768
    *
-   * @memberof Modernizr
+   * @memberOf Modernizr
    * @name Modernizr.mq
    * @optionName Modernizr.mq()
    * @optionProp mq
@@ -1215,11 +1207,9 @@
    *  Modernizr.mq('only all'); // true if MQ are supported, false if not
    * ```
    *
-   *
    * Note that if the browser does not support media queries (e.g. old IE) mq will
    * always return false.
    */
-
   var mq = (function() {
     var matchMedia = window.matchMedia || window.msMatchMedia;
     if (matchMedia) {
@@ -1234,14 +1224,13 @@
 
       injectElementWithStyles('@media ' + mq + ' { #modernizr { position: absolute; } }', function(node) {
         bool = (window.getComputedStyle ?
-                window.getComputedStyle(node, null) :
-                node.currentStyle).position == 'absolute';
+          window.getComputedStyle(node, null) :
+          node.currentStyle).position === 'absolute';
       });
 
       return bool;
     };
   })();
-
 
   ModernizrProto.mq = mq;
 

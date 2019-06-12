@@ -4,6 +4,8 @@
    ============================================================== */
 
 #header {
+    @include admin-sticky-fix();
+
     .navbar-collapse {
         flex-grow: 0;
     }
