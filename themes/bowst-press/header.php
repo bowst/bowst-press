@@ -51,8 +51,8 @@
 					?>
 
 				<!-- Search -->
-				<form class="navbar-form form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<form class="search-form navbar-form form-inline my-2 my-lg-0" role="search" method="get" action="<?php echo esc_url( home_url() ); ?>">
+					<input class="form-control mr-sm-2" type="search" name="s" value="<?php echo esc_attr( get_search_query() ); ?>" placeholder="Search" aria-label="Search">
 					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 				</form>
 			</div>
