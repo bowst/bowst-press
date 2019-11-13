@@ -7,7 +7,7 @@ class Bowst_Press_Core_Public_Render {
 
     public function __construct() {
         add_action('init', array($this, 'wp_head_tidy'));
-        add_filter('style_loader_tag', array($this, 'style_tags_tidy'));
+        // add_filter('style_loader_tag', array($this, 'style_tags_tidy'));
         // add_filter('script_loader_tag', array($this, 'script_tags_tidy'));
         add_filter('body_class', array($this, 'body_classes'));
         add_filter('the_content', array($this, 'shortcode_empty_p_fix'));

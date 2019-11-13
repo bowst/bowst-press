@@ -123,6 +123,33 @@ function bowst_press_scripts() {
 add_action( 'wp_enqueue_scripts', 'bowst_press_scripts' );
 
 /**
+ * Server environment warning.
+ */
+function environment_warning( $wp_admin_bar ) {
+	if ( \ServerEnv::isnt( 'live' ) ) {
+		$env = \ServerEnv::get();
+
+		$args = array(
+			'id'    => 'pantheon_env',
+			'title' => 'ENV: ' . $env,
+			'meta'  => array( 'class' => 'env-warning' ),
+		);
+
+		$wp_admin_bar->add_node( $args );
+	}
+}
+add_action( 'admin_bar_menu', __NAMESPACE__ . '\\environment_warning', 20 );
+
+function env_warning_highlight() {
+	if ( \ServerEnv::isnt( 'live' ) ) {
+		echo '<style>.env-warning{background:#ffdc28!important}.env-warning>div{color:#23282d!important}.env-warning:hover{background:#ffdc28!important}.env-warning:hover>div{color:#23282d!important;background:none!important}</style>';
+	}
+}
+add_action( 'wp_head', __NAMESPACE__ . '\\env_warning_highlight' );
+add_action( 'login_head', __NAMESPACE__ . '\\env_warning_highlight' );
+add_action( 'admin_head', __NAMESPACE__ . '\\env_warning_highlight' );
+
+/**
  * Register Custom Navigation Walker.
  */
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
