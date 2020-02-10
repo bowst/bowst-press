@@ -1,0 +1,11 @@
+:root {
+  --display: block;
+}
+
+.is-visible {
+  display: var(--display) !important;
+}
+
+.is-hidden {
+  display: none !important;
+}
