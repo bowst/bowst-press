@@ -1,6 +1,7 @@
 var pkg = require('../package.json');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
+var sassLint = require('gulp-sass-lint');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var pxtorem = require('postcss-pxtorem');
@@ -58,7 +59,7 @@ const mqpackerOptions = {
     sort: true,
 };
 
-const build = function() {
+const build = function () {
     var cssStream, sassStream;
 
     // Compile CSS files
@@ -69,9 +70,16 @@ const build = function() {
     // Compile Sass
     sassStream = gulp
         .src(pkg.config.sassPath + '/**/*.scss')
+        .pipe(
+            sassLint({
+                'cache-config': true, // NOTE: When changing the .sass-lint.yml file, this should be set to "false" while debugging changes. Otherwise, it should be set to "true".
+            })
+        )
+        .pipe(sassLint.format())
+        .pipe(sassLint.failOnError())
         .pipe(sourcemaps.init())
         .pipe(
-            sass(sassOptions).on('error', function(err) {
+            sass(sassOptions).on('error', function (err) {
                 console.error(err.message);
                 this.emit('end');
             })

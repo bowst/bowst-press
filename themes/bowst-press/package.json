@@ -41,6 +41,7 @@
         "gulp-modernizr": "^3.2.1",
         "gulp-postcss": "^7.0.1",
         "gulp-sass": "^4.0.1",
+        "gulp-sass-lint": "^1.4.0",
         "gulp-sourcemaps": "^2.6.4",
         "gulp-uglify": "^3.0.0",
         "gulp-watch": "^4.3.11",

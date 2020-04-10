@@ -15,22 +15,27 @@
 .txt-purple {
     color: theme-color('primary');
 }
+
 .txt-brand-success,
 .txt-magenta {
     color: theme-color('success');
 }
+
 .txt-brand-info,
 .txt-lilac {
     color: theme-color('info');
 }
+
 .txt-brand-warning,
 .txt-orange {
     color: theme-color('warning');
 }
+
 .txt-brand-danger,
 .txt-pink {
     color: theme-color('danger');
 }
+
 .txt-white {
     color: $white;
 }
@@ -40,18 +45,22 @@ a.txt-brand-primary:hover,
 a.txt-purple:hover {
     color: darken(theme-color('primary'), 15%);
 }
+
 a.txt-brand-success:hover,
 a.txt-magenta:hover {
     color: darken(theme-color('success'), 15%);
 }
+
 a.txt-brand-info:hover,
 a.txt-lilac:hover {
     color: darken(theme-color('info'), 15%);
 }
+
 a.txt-brand-warning:hover,
 a.txt-orange:hover {
     color: darken(theme-color('warning'), 15%);
 }
+
 a.txt-brand-danger:hover,
 a.txt-pink:hover {
     color: darken(theme-color('danger'), 15%);
@@ -61,9 +70,11 @@ a.txt-pink:hover {
 .weight-light {
     font-weight: $font-weight-light;
 }
+
 .weight-normal {
     font-weight: $font-weight-normal;
 }
+
 .weight-bold {
     font-weight: $font-weight-bold;
 }
@@ -72,9 +83,11 @@ a.txt-pink:hover {
 .txt-sm {
     font-size: $font-size-sm;
 }
+
 .txt-base {
     font-size: $font-size-base;
 }
+
 .txt-lg {
     font-size: $font-size-lg;
 }
@@ -83,6 +96,7 @@ a.txt-pink:hover {
 .font-sans-serif {
     font-family: $font-family-sans-serif;
 }
+
 .font-serif {
     font-family: $font-family-serif;
 }
@@ -91,6 +105,7 @@ a.txt-pink:hover {
 .line-height-sm {
     line-height: $headings-line-height;
 }
+
 .line-height-base {
     line-height: $line-height-base;
 }

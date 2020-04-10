@@ -15,18 +15,22 @@
 .bg-purple {
     background: theme-color('primary');
 }
+
 .bg-brand-success,
 .bg-magenta {
     background: theme-color('success');
 }
+
 .bg-brand-info,
 .bg-lilac {
     background: theme-color('info');
 }
+
 .bg-brand-warning,
 .bg-orange {
     background: theme-color('warning');
 }
+
 .bg-brand-danger,
 .bg-pink {
     background: theme-color('danger');
@@ -36,18 +40,23 @@
 .bg-gray-base {
     background: color('500');
 }
+
 .bg-gray-darker {
     background: gray('900');
 }
+
 .bg-gray-dark {
     background: gray('700');
 }
+
 .bg-gray {
     background: color('gray');
 }
+
 .bg-gray-light {
     background: gray('300');
 }
+
 .bg-gray-lighter {
     background: gray('100');
 }
