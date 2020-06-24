@@ -1,44 +1,61 @@
-var bMobile; // true if in mobile mode
+let mobile; // true if in mobile mode
 
 // Initiate event handlers
 function initNav() {
     'use strict';
     // .navbar-toggle is only visible in mobile mode
-    bMobile = jQuery('.navbar-toggler').is(':visible');
-    var oMenus = jQuery('.navbar-nav .dropdown'),
-        nTimer;
-    if (bMobile) {
+    let mobile = jQuery('.navbar-toggler').is(':visible'),
+        dropdownItems = jQuery('.navbar-nav .dropdown'),
+        dropdowns = jQuery('.navbar-nav .dropdown-menu'),
+        timer;
+    if (mobile) {
         // Disable hover events for mobile
-        oMenus.off();
+        dropdownItems.off();
+        dropdowns.off();
     } else {
-        oMenus.on({
-            mouseenter: function(event) {
-                event.preventDefault();
-                clearTimeout(nTimer);
-                oMenus.removeClass('show');
+        dropdownItems.on({
+            mouseenter: function (e) {
+                e.preventDefault();
+                clearTimeout(timer);
                 jQuery(this).addClass('show');
+                jQuery(this).find('> .dropdown-menu').addClass('show');
             },
-            mouseleave: function(event) {
-                nTimer = setTimeout(function() {
-                    oMenus.removeClass('show');
+            mouseleave: function (e) {
+                let thisMenu = jQuery(this);
+                timer = setTimeout(function () {
+                    thisMenu.removeClass('show');
                 }, 500);
-            }
+
+                thisMenu.find('> .dropdown-menu').removeClass('show');
+            },
+        });
+
+        dropdowns.on({
+            mouseleave: function () {
+                let thisDropdown = jQuery(this);
+                timer = setTimeout(function () {
+                    thisDropdown.removeClass('show');
+                }, 500);
+            },
         });
     }
 
-    jQuery('li.menu-item-has-children .toggle').on('click touchend', function(e) {
+    jQuery('li.menu-item-has-children .toggle').on('click touchend', function (
+        e
+    ) {
         e.preventDefault();
 
         jQuery(this)
             .toggleClass('active')
             .parent()
             .parent()
-            .find('.dropdown-menu')
+            .toggleClass('show')
+            .find('> .dropdown-menu')
             .toggleClass('show');
     });
 }
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     initNav();
 
     $(window).resize(initNav);

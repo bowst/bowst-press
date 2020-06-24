@@ -7,6 +7,7 @@
 .navbar {
     .navbar-collapse {
         .navbar-nav {
+            // First level
             > .menu-item {
                 > a {
                     display: flex;
@@ -18,7 +19,7 @@
                         display: block;
                     }
 
-                    .btn {
+                    .toggle {
                         padding: 6px 10px;
                         line-height: 1;
 
@@ -28,6 +29,11 @@
                             border-color: transparent;
                             color: $primary;
                         }
+
+                        .fa-angle-down {
+                            transform: rotate(0deg);
+                            transition: $transition-base;
+                        }
                     }
 
                     &::after {
@@ -35,9 +41,34 @@
                     }
                 }
 
+                &.menu-item-has-children.show {
+                    .toggle .fa-angle-down {
+                        transform: rotate(180deg);
+                    }
+                }
+
+                // Second level
+                .dropdown-menu {
+                    @include media-breakpoint-down(md) {
+                        padding: 0;
+                        background: transparent;
+                        border: 0;
+
+                        a {
+                            color: $white;
+                            font-size: 14px;
+                        }
+                    }
+                }
+
                 @include media-breakpoint-up(lg) {
-                    &.menu-item-has-children.show .dropdown-menu {
-                        display: block;
+                    .dropdown-menu {
+                        margin: 0;
+
+                        .dropdown-menu {
+                            top: 0;
+                            left: 100%;
+                        }
                     }
                 }
             }
