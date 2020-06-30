@@ -35,22 +35,32 @@ if ( ! function_exists( 'bowst_press_setup' ) ) :
 		add_theme_support( 'post-thumbnails' );
 
 		// Load globals stylesheet in TinyMCE.
-		add_editor_style( array(
-			// 'https://fonts.googleapis.com/css?family=Open+Sans:400%2C600', // You must encode the commas in Google Font URLs!
-			'public/css/globals.css',
-		) );
+		add_editor_style(
+			array(
+				// 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap',
+				'public/css/globals.css',
+			)
+		);
 
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary', 'bowst-press' ),
-			'footer'  => esc_html__( 'Footer', 'bowst-press' ),
-		) );
+		register_nav_menus(
+			array(
+				'primary' => esc_html__( 'Primary', 'bowst-press' ),
+				'footer'  => esc_html__( 'Footer', 'bowst-press' ),
+			)
+		);
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'bowst_press_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		) ) );
+		add_theme_support(
+			'custom-background',
+			apply_filters(
+				'bowst_press_custom_background_args',
+				array(
+					'default-color' => 'ffffff',
+					'default-image' => '',
+				)
+			)
+		);
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -76,15 +86,17 @@ add_action( 'after_setup_theme', 'bowst_press_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function bowst_press_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'bowst-press' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'bowst-press' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+	register_sidebar(
+		array(
+			'name'          => esc_html__( 'Sidebar', 'bowst-press' ),
+			'id'            => 'sidebar-1',
+			'description'   => esc_html__( 'Add widgets here.', 'bowst-press' ),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 }
 add_action( 'widgets_init', 'bowst_press_widgets_init' );
 
@@ -92,13 +104,20 @@ add_action( 'widgets_init', 'bowst_press_widgets_init' );
  * Enqueue scripts and styles.
  */
 function bowst_press_scripts() {
+	$theme_version = wp_get_theme()->get( 'Version' );
+
 	/* Underscore Theme */
 	wp_enqueue_style( 'bowst-press-style', get_stylesheet_uri() );
-	wp_enqueue_script( 'bowst-press-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-	wp_enqueue_script( 'bowst-press-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'bowst-press-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $theme_version, true );
+	wp_enqueue_script( 'bowst-press-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), $theme_version, true );
 
 	/* Modernizr & Polyfills */
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/public/js/libraries/modernizr-custom.js', false, filemtime( get_template_directory() . '/public/js/libraries/modernizr-custom.js' ), false );
+	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/public/js/libraries/modernizr-custom.js', array(), $theme_version, false );
+
+	/*
+	 Fonts */
+	// wp_enqueue_style( 'bowst-press-google-fonts-raleway', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap', array(), $theme_version, 'all' );
+	// wp_enqueue_script( 'bowst-press-font-awesome', 'https://kit.fontawesome.com/cc18b42fae.js', array(), $theme_version, false );
 
 	/* Custom */
 	wp_enqueue_style( 'bowst-press-global-styles', get_template_directory_uri() . '/public/css/globals.css', false, filemtime( get_template_directory() . '/public/css/globals.css' ), 'all' );
