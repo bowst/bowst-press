@@ -1,0 +1,72 @@
+{
+    "key": "group_5ac773a845858",
+    "title": "Global Layouts",
+    "fields": [
+        {
+            "key": "field_5ac773d5ba2f2",
+            "label": "Global Layouts",
+            "name": "global_layouts",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "5ac773dcf1b69": {
+                    "key": "5ac773dcf1b69",
+                    "name": "block_wysiwyg_content",
+                    "label": "WYSIWYG Content",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ac773ffba2f3",
+                            "label": "Content",
+                            "name": "content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 1
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Layout",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1523020879
+}

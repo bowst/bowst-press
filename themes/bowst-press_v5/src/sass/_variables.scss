@@ -1,0 +1,186 @@
+// /* ===============================================================
+//    VARIABLES
+//    - Bootstrap variable overrides AND CUSTOM site variables
+//      (not 100% replica of original bootstrap variables stylesheet)
+//    - Copy only the Bootstrap variables you want to override and
+//      paste below, keeping them in appropriate sections.
+//    - Be sure to remove the !default after each variable.
+//    - Bootstrap variables file lives in
+//      ../node_modules/bootstrap/scss/_variables.scss
+// =============================================================== */
+
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+//
+// Color system
+//
+
+// // Gray Overrides
+$white: #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black: #000 !default;
+
+// // Brand Color Overrides
+$blue: #0d6efd !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #d63384 !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #198754 !default;
+$teal: #20c997 !default;
+$cyan: #0dcaf0 !default;
+
+// // Brand Colors
+$primary: $blue !default;
+$secondary: $gray-600 !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$danger: $red !default;
+$light: $gray-100 !default;
+$dark: $gray-900 !default;
+
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+$min-contrast-ratio: 4.5 !default;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg: $white;
+$body-color: $gray-900;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color: $primary;
+$link-decoration: none;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: underline;
+
+// Fonts
+//
+// Font, line-height, and color for body text, headings, and more.
+
+$font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family-serif: Georgia, 'Times New Roman', Times, serif;
+// //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
+$font-family-base: $font-family-sans-serif;
+
+$font-size-base: 1rem !default; // Assumes the browser default, typically `16px`
+$font-size-lg: ($font-size-base * 1.25) !default;
+$font-size-sm: ($font-size-base * 0.875) !default;
+
+$h1-font-size: 32px;
+$h2-font-size: 22px;
+$h3-font-size: 18px;
+$h4-font-size: 16px;
+$h5-font-size: 14px;
+$h6-font-size: 12px;
+
+// //** Font Weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-base: $font-weight-normal;
+
+// //** Paragraphs
+$paragraph-margin-bottom: 1em;
+
+// //** Unit-less `line-height` for use in components like buttons.
+$line-height-base: 1.428571429; // 20/14
+// //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed: floor(($font-size-base * $line-height-base)); // ~20px
+
+// //** By default, this inherits from the `<body>`.
+$headings-font-family: inherit !default;
+$headings-font-weight: 500 !default;
+$headings-line-height: 1.1;
+$headings-color: $primary;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+// // Custom Padding
+$padding-sm: 20px;
+$padding: 40px;
+$padding-md: 80px;
+$padding-lg: 100px;
+
+// // Line Height
+$line-height-lg: 1.3333333; // extra decimals for Win 8.1 Chrome
+$line-height-sm: 1; // 20
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+) !default;
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+) !default;
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$border-width: 1px !default;
+$border-color: $gray-400;
+
+$border-radius: 0.25rem !default;
+$border-radius-lg: 0.3rem !default;
+$border-radius-sm: 0.2rem !default;
+$border-radius-round: 50%;
+
+// Forms
+
+// //** Placeholder text color
+$input-placeholder-color: $gray-600 !default;
+$input-plaintext-color: $body-color !default;
+
+// //** Text color for `<input>`s
+$input-color: $gray-700 !default;
+// //** `<input>` border color
+$input-border-color: $gray-400 !default;
+
+// //** `.form-group` margin
+$form-group-margin-bottom: 20px;
