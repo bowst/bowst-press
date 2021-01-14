@@ -46,7 +46,7 @@
 
         // Second level
         .dropdown-menu {
-            @include media-breakpoint-down(lg) {
+            @include media-breakpoint-down(md) {
                 padding: 0;
                 background: transparent;
                 border: 0;
