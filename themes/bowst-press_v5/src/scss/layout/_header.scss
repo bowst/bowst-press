@@ -8,7 +8,7 @@
 
     .navbar-collapse {
         @include media-breakpoint-up(md) {
-            width: auto;
+            flex-grow: 0;
         }
     }
 

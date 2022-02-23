@@ -7763,7 +7763,7 @@ body#tinymce {
 
 @media (min-width: 768px) {
   #header .navbar-collapse {
-    width: auto; } }
+    flex-grow: 0; } }
 
 #header .navbar-brand img {
   width: 120px;
