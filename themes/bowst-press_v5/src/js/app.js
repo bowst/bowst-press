@@ -1,21 +1,12 @@
 /* eslint no-undef: 0 */
 // import 'babel-polyfill';
 
+// Load Styles
+import '../scss/globals.scss';
+
 // Bootstrap dependencies
 import '@popperjs/core';
-import {
-    Alert,
-    Button,
-    Carousel,
-    Collapse,
-    Dropdown,
-    Modal,
-    Popover,
-    Scrollspy,
-    Tab,
-    Toast,
-    Tooltip,
-} from 'bootstrap';
+import { Alert, Button, Carousel, Collapse, Dropdown, Modal, Popover, Scrollspy, Tab, Toast, Tooltip } from 'bootstrap';
 
 // FontAwesome
 import '@fortawesome/fontawesome-free/js/regular';
