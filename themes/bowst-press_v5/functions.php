@@ -120,7 +120,7 @@ function bowst_press_scripts() {
 
 	/*
 	 Fonts */
-	// wp_enqueue_style( 'bowst-press-google-fonts-raleway', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap', array() );
+	// wp_enqueue_style( 'bowst-press-google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap', array(), null );
 	// wp_enqueue_script( 'bowst-press-font-awesome', 'https://kit.fontawesome.com/cf33371a1a.js', array(), $theme_version, false );
 
 	/* Custom */
