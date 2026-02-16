@@ -24,6 +24,8 @@ if ( ! function_exists( 'bowst_press_setup' ) ) :
 		*/
 		load_theme_textdomain( 'bowst-press', get_template_directory() . '/languages' );
 
+		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script' ) );
+
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
 
@@ -33,6 +35,7 @@ if ( ! function_exists( 'bowst_press_setup' ) ) :
 		* @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		*/
 		add_theme_support( 'post-thumbnails' );
+		add_theme_support( 'responsive-images' );
 
 		if ( function_exists( 'add_image_size' ) ) {
 			add_image_size( 'hero', 2000, 800, true );
@@ -42,9 +45,12 @@ if ( ! function_exists( 'bowst_press_setup' ) ) :
 		add_editor_style(
 			array(
 				// 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap',
-				'public/css/app.css',
+				'assets/css/app.css',
 			)
 		);
+		add_theme_support( 'editor-styles' );
+		add_theme_support( 'wp-block-styles' );
+		add_theme_support( 'align-wide' );
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus(
@@ -112,20 +118,15 @@ function bowst_press_scripts() {
 
 	/* Underscore Theme */
 	wp_enqueue_style( 'bowst-press-style', get_stylesheet_uri() );
-	wp_enqueue_script( 'bowst-press-navigation', get_template_directory_uri() . '/js/navigation.js', array(), $theme_version, true );
-	wp_enqueue_script( 'bowst-press-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), $theme_version, true );
-
-	/* Modernizr & Polyfills */
-	wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/public/js/libraries/modernizr-custom.js', array(), $theme_version, false );
 
 	/*
-	 Fonts */
-	// wp_enqueue_style( 'bowst-press-google-fonts', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap', array(), null );
+	Fonts */
 	// wp_enqueue_script( 'bowst-press-font-awesome', 'https://kit.fontawesome.com/cf33371a1a.js', array(), $theme_version, false );
 
 	/* Custom */
-	wp_enqueue_style( 'bowst-press-global-styles', get_template_directory_uri() . '/public/css/app.css', false, filemtime( get_template_directory() . '/public/css/app.css' ), 'all' );
-	wp_enqueue_script( 'bowst-press-global-scripts', get_template_directory_uri() . '/public/js/app.js', array( 'jquery' ), filemtime( get_template_directory() . '/public/js/app.js' ), true );
+	wp_enqueue_style( 'bowst-press-global-styles', get_template_directory_uri() . '/assets/css/app.css', false, filemtime( get_template_directory() . '/assets/css/app.css' ), 'all' );
+	wp_enqueue_script( 'bowst-press-global-scripts', get_template_directory_uri() . '/assets/js/app.js', array( 'jquery' ), filemtime( get_template_directory() . '/assets/js/app.js' ), true );
+	wp_script_add_data( 'bowst-press-global-scripts', 'strategy', 'defer' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -143,7 +144,7 @@ function bowst_press_scripts() {
 	);
 	wp_localize_script( 'bowst-press-global-scripts', 'SiteInfo', $site_info );
 }
-add_action( 'wp_enqueue_scripts', 'bowst_press_scripts' );
+add_action( 'wp_enqueue_scripts', 'bowst_press_scripts', 8 );
 
 /**
  * Server environment warning.
@@ -201,6 +202,11 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Gutenberg blocks and patterns
+ */
+require get_template_directory() . '/inc/gutenberg.php';
 
 /**
  * ACF Options Page

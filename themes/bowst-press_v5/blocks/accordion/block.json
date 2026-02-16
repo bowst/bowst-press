@@ -1,0 +1,37 @@
+{
+    "name": "acf/accordion",
+    "title": "Accordion",
+    "description": "An accordion block.",
+    "editorStyle": "bowst-press-global-styles",
+    "style": "file:./style.css",
+    "category": "bowst",
+    "icon": "editor-justify",
+    "apiVersion": 3,
+    "keywords": ["accordion"],
+    "acf": {
+        "mode": "preview",
+        "blockVersion": 3,
+        "autoInlineEditing": true,
+        "renderTemplate": "block-accordion.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "alignContent": false,
+        "color": {
+            "text": false,
+            "background": false,
+            "link": false
+        },
+        "alignText": false,
+        "spacing": {
+            "margin": false,
+            "padding": false
+        },
+        "typography": {
+            "lineHeight": false,
+            "fontSize": false
+        },
+        "fullHeight": false
+    }
+}

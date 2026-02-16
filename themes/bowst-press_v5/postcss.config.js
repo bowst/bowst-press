@@ -19,7 +19,7 @@ module.exports = {
             ],
         },
         'postcss-preset-env': {
-            browsers: 'last 2 versions',
+            browserslist: 'last 2 versions',
         },
     },
 };

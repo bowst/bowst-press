@@ -6,6 +6,8 @@
 // Configuration
 @import 'bootstrap/scss/functions';
 @import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
 @import 'bootstrap/scss/mixins';
 @import 'bootstrap/scss/utilities';
 
@@ -21,6 +23,7 @@
 @import 'bootstrap/scss/buttons';
 @import 'bootstrap/scss/transitions';
 @import 'bootstrap/scss/dropdown';
+@import 'bootstrap/scss/accordion';
 @import 'bootstrap/scss/button-group';
 @import 'bootstrap/scss/nav';
 @import 'bootstrap/scss/navbar';
@@ -38,6 +41,8 @@
 @import 'bootstrap/scss/popover';
 @import 'bootstrap/scss/carousel';
 @import 'bootstrap/scss/spinners';
+@import 'bootstrap/scss/offcanvas';
+@import 'bootstrap/scss/placeholders';
 
 // Helpers
 @import 'bootstrap/scss/helpers';

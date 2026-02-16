@@ -58,3 +58,9 @@ h6 {
 p {
     margin-bottom: $paragraph-margin-bottom;
 }
+
+.breakout-container {
+    width: 100vw;
+    position: relative;
+    left: calc(-1 * (100vw - 100%) / 2);
+}

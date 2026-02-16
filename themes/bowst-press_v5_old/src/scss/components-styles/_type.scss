@@ -1,0 +1,111 @@
+/* ===============================================================
+    TYPE
+	- Styles that can be applied to text
+	- The intended real world use for these selectors is for
+	  creating a quick, nice looking page (that has not been provided
+	  with a design) in Drupal via the wysiwyg editor.
+	- When creating a page that DOES have a design, it is preferable
+      to assign variables to the elements rather than use these classes.
+	- ** RENAME colo selectors with your custom color
+	  variable names
+   =============================================================== */
+
+/* Text Color */
+.txt-brand-primary,
+.txt-purple {
+    color: $primary;
+}
+
+.txt-brand-success,
+.txt-magenta {
+    color: $success;
+}
+
+.txt-brand-info,
+.txt-lilac {
+    color: $info;
+}
+
+.txt-brand-warning,
+.txt-orange {
+    color: $warning;
+}
+
+.txt-brand-danger,
+.txt-pink {
+    color: $danger;
+}
+
+.txt-white {
+    color: $white;
+}
+
+/* Text Color - Links */
+a.txt-brand-primary:hover,
+a.txt-purple:hover {
+    color: darken($primary, 15%);
+}
+
+a.txt-brand-success:hover,
+a.txt-magenta:hover {
+    color: darken($success, 15%);
+}
+
+a.txt-brand-info:hover,
+a.txt-lilac:hover {
+    color: darken($info, 15%);
+}
+
+a.txt-brand-warning:hover,
+a.txt-orange:hover {
+    color: darken($warning, 15%);
+}
+
+a.txt-brand-danger:hover,
+a.txt-pink:hover {
+    color: darken($danger, 15%);
+}
+
+/* Font Weights */
+.weight-light {
+    font-weight: $font-weight-light;
+}
+
+.weight-normal {
+    font-weight: $font-weight-normal;
+}
+
+.weight-bold {
+    font-weight: $font-weight-bold;
+}
+
+// Text Sizes */
+.txt-sm {
+    font-size: $font-size-sm;
+}
+
+.txt-base {
+    font-size: $font-size-base;
+}
+
+.txt-lg {
+    font-size: $font-size-lg;
+}
+
+/* Font Families */
+.font-sans-serif {
+    font-family: $font-family-sans-serif;
+}
+
+.font-serif {
+    font-family: $font-family-serif;
+}
+
+/* Line Heights */
+.line-height-sm {
+    line-height: $headings-line-height;
+}
+
+.line-height-base {
+    line-height: $line-height-base;
+}

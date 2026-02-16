@@ -18,6 +18,8 @@
 // Color system
 //
 
+@import './_theme-colors.scss';
+
 // // Gray Overrides
 $white: #fff !default;
 $gray-100: #f8f9fa !default;
@@ -44,14 +46,25 @@ $teal: #20c997 !default;
 $cyan: #0dcaf0 !default;
 
 // // Brand Colors
-$primary: $blue !default;
-$secondary: $gray-600 !default;
+// $primary: $pink;
+$secondary: $gray-600;
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-900 !default;
+
+$theme-colors: (
+    'primary': $primary,
+    'secondary': $secondary,
+    'success': $success,
+    'info': $info,
+    'warning': $warning,
+    'danger': $danger,
+    'light': $light,
+    'dark': $dark,
+);
 
 // The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
 // See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
@@ -61,8 +74,8 @@ $min-contrast-ratio: 4.5 !default;
 //
 // Settings for the `<body>` element.
 
-$body-bg: $white;
-$body-color: $gray-900;
+$body-bg: var(--wp--preset--color--base);
+$body-color: var(--wp--preset--color--contrast);
 
 // Links
 //
@@ -77,8 +90,9 @@ $link-hover-decoration: underline;
 //
 // Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$font-family-serif: Georgia, 'Times New Roman', Times, serif;
+$font-family-sans-serif: var(--wp--preset--font-family--open-sans);
+$font-family-manrope: var(--wp--preset--font-family--manrope);
+$font-family-serif: var(--wp--preset--font-family--georgia);
 // //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
 $font-family-base: $font-family-sans-serif;
@@ -109,7 +123,7 @@ $line-height-base: 1.428571429; // 20/14
 $line-height-computed: floor(($font-size-base * $line-height-base)); // ~20px
 
 // //** By default, this inherits from the `<body>`.
-$headings-font-family: inherit !default;
+$headings-font-family: $font-family-manrope;
 $headings-font-weight: $font-weight-bold;
 $headings-line-height: 1.1;
 $headings-color: $primary;

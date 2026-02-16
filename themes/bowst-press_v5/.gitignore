@@ -1,0 +1,4 @@
+# Webpack emits this for the blocks CSS entry; only the CSS is used
+blocks/*/style.js
+blocks/*/style.js.map
+node_modules/

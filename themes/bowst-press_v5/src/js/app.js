@@ -1,6 +1,9 @@
 /* eslint no-undef: 0 */
 // import 'babel-polyfill';
 
+// Pull colors.json into build so webpack watches it; SyncColorsPlugin runs before each compile
+import '../data/colors.json';
+
 // Load Styles
 import '../scss/globals.scss';
 

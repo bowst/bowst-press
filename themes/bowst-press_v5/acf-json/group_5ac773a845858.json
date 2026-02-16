@@ -6,6 +6,7 @@
             "key": "field_5ac773d5ba2f2",
             "label": "Global Layouts",
             "name": "global_layouts",
+            "aria-label": "",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -26,6 +27,7 @@
                             "key": "field_5ac773ffba2f3",
                             "label": "Content",
                             "name": "content",
+                            "aria-label": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 1,
@@ -66,7 +68,9 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": 1,
+    "active": false,
     "description": "",
-    "modified": 1523020879
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1770760619
 }
