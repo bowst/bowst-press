@@ -1,0 +1,37 @@
+{
+    "name": "acf/team-member",
+    "title": "Team Member",
+    "description": "A team member card with photo, name, role, bio and social links.",
+    "editorStyle": "bowst-press-global-styles",
+    "style": "file:./style.css",
+    "category": "bowst",
+    "icon": "businessperson",
+    "apiVersion": 3,
+    "keywords": ["team", "member", "staff", "people"],
+    "acf": {
+        "mode": "preview",
+        "blockVersion": 3,
+        "autoInlineEditing": true,
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "alignContent": false,
+        "color": {
+            "text": false,
+            "background": false,
+            "link": false
+        },
+        "alignText": false,
+        "spacing": {
+            "margin": false,
+            "padding": false
+        },
+        "typography": {
+            "lineHeight": false,
+            "fontSize": false
+        },
+        "fullHeight": false
+    }
+}

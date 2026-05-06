@@ -1,0 +1,70 @@
+/**
+ * Testimonial block styles.
+ */
+
+@import '../../src/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+.block-testimonial {
+    text-align: center;
+    padding: $padding $padding-sm;
+
+    @include media-breakpoint-up(md) {
+        padding: $padding-md $padding;
+    }
+
+    &__rating {
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+    }
+
+    &__star {
+        color: $gray-300;
+
+        &.is-filled {
+            color: #f5a623;
+        }
+    }
+
+    &__quote {
+        font-size: 1.25rem;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        border: 0;
+        padding: 0;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__attribution {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    &__image {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    &__meta {
+        text-align: left;
+    }
+
+    &__author {
+        display: block;
+        font-style: normal;
+        font-weight: $font-weight-bold;
+    }
+
+    &__role {
+        display: block;
+        font-size: $font-size-sm;
+        color: $gray-600;
+    }
+}

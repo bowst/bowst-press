@@ -1,0 +1,30 @@
+/**
+ * CTA Banner block styles.
+ */
+
+@import '../../src/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+.block-cta-banner {
+    padding: $padding-md $padding-sm;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+        padding: $padding-lg $padding;
+    }
+
+    &__heading {
+        margin-bottom: 1rem;
+    }
+
+    &__content {
+        margin-bottom: 2rem;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

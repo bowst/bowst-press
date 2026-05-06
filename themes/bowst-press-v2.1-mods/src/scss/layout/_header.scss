@@ -1,0 +1,21 @@
+/* ==============================================================
+   HEADER
+   - Styles for anything that resides in the header
+   ============================================================== */
+
+#header {
+    @include admin-sticky-fix();
+
+    .navbar-collapse {
+        @include media-breakpoint-up(md) {
+            flex-grow: 0;
+        }
+    }
+
+    .navbar-brand {
+        img {
+            width: 120px;
+            height: 31px;
+        }
+    }
+}

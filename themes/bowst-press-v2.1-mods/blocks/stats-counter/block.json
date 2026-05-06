@@ -1,0 +1,37 @@
+{
+    "name": "acf/stats-counter",
+    "title": "Stats Counter",
+    "description": "Display statistics with numbers, labels, and optional prefix/suffix.",
+    "editorStyle": "bowst-press-global-styles",
+    "style": "file:./style.css",
+    "category": "bowst",
+    "icon": "chart-bar",
+    "apiVersion": 3,
+    "keywords": ["stats", "counter", "numbers", "metrics"],
+    "acf": {
+        "mode": "preview",
+        "blockVersion": 3,
+        "autoInlineEditing": true,
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "alignContent": false,
+        "color": {
+            "text": false,
+            "background": false,
+            "link": false
+        },
+        "alignText": false,
+        "spacing": {
+            "margin": false,
+            "padding": false
+        },
+        "typography": {
+            "lineHeight": false,
+            "fontSize": false
+        },
+        "fullHeight": false
+    }
+}

@@ -1,0 +1,45 @@
+/**
+ * Stats Counter block styles.
+ */
+
+@import '../../src/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+.block-stats-counter {
+    padding: $padding 0;
+
+    @include media-breakpoint-up(md) {
+        padding: $padding-md 0;
+    }
+
+    &__item {
+        padding: 1rem;
+    }
+
+    &__number {
+        font-family: $font-family-heading;
+        font-size: 3rem;
+        font-weight: $font-weight-bold;
+        line-height: 1;
+        color: $primary;
+        margin-bottom: 0.5rem;
+
+        @include media-breakpoint-up(md) {
+            font-size: 4rem;
+        }
+    }
+
+    &__prefix,
+    &__suffix {
+        font-size: 0.6em;
+    }
+
+    &__label {
+        font-size: $font-size-base;
+        color: $gray-600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: $font-weight-bold;
+        font-size: $font-size-sm;
+    }
+}

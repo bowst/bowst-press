@@ -1,0 +1,40 @@
+/**
+ * Feature Card block styles.
+ */
+
+@import '../../src/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+.block-feature-card {
+    padding: $padding-sm;
+    text-align: center;
+
+    &__icon {
+        margin-bottom: 1rem;
+        font-size: 2.5rem;
+        color: $primary;
+
+        img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+    }
+
+    &__heading {
+        margin-bottom: 0.75rem;
+    }
+
+    &__content {
+        margin-bottom: 1rem;
+    }
+
+    &__link {
+        font-weight: $font-weight-bold;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

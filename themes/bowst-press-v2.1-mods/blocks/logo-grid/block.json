@@ -1,0 +1,37 @@
+{
+    "name": "acf/logo-grid",
+    "title": "Logo Grid",
+    "description": "A grid of logos with optional links.",
+    "editorStyle": "bowst-press-global-styles",
+    "style": "file:./style.css",
+    "category": "bowst",
+    "icon": "grid-view",
+    "apiVersion": 3,
+    "keywords": ["logo", "grid", "partners", "clients"],
+    "acf": {
+        "mode": "preview",
+        "blockVersion": 3,
+        "autoInlineEditing": true,
+        "renderTemplate": "render.php"
+    },
+    "supports": {
+        "align": false,
+        "anchor": true,
+        "alignContent": false,
+        "color": {
+            "text": false,
+            "background": false,
+            "link": false
+        },
+        "alignText": false,
+        "spacing": {
+            "margin": false,
+            "padding": false
+        },
+        "typography": {
+            "lineHeight": false,
+            "fontSize": false
+        },
+        "fullHeight": false
+    }
+}
