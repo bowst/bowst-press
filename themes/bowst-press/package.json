@@ -32,7 +32,7 @@
         "css-mqpacker": "^6.0.2",
         "es6-promise": "^4.2.4",
         "exports-loader": "^0.7.0",
-        "gulp": "^3.9.1",
+        "gulp": "^4.0.2",
         "gulp-changed": "^3.2.0",
         "gulp-concat": "^2.6.1",
         "gulp-imagemin": "^4.1.0",
